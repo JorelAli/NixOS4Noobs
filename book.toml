@@ -1,0 +1,5 @@
+[book]
+authors = ["Jorel Ali"]
+multilingual = false
+src = "src"
+title = "NixOS4Noobs"
