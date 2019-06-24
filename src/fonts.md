@@ -10,7 +10,7 @@ fonts.fonts = with pkgs; [
 ];
 ```
 
-Unfortunately, searching for font packages is _incredibly unintuitive_. The 100% best safest way to find fonts is as follows:
+Unfortunately, searching for font packages is _incredibly unintuitive_. Font packages look just like regular packages and adding them to the system packages _does not install them properly_. The 100% best safest way to find fonts is as follows:
 
 1. Search for the font you're looking for on the [NixOS packages search website](https://nixos.org/nixos/packages.html#font)
 2. Click on the package on the website (this shows a quick description of the package, along with various other information)
