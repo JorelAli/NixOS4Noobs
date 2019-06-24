@@ -1,0 +1,1 @@
+# Nix garbage collection
