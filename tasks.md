@@ -16,3 +16,5 @@ OR:
 ```
 nixos-option <option>
 ```
+
+Maybe ... just MAYBE include nixos-rebuild switch, nixos-rebuild --upgrade....
