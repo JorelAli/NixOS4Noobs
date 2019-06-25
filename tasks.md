@@ -3,6 +3,8 @@
 
 something something allowUYnfree
 
+Something about .etc."fileName"
+
 Searching options:
 ```
 nix repl '<nixpkgs/nixos>'
