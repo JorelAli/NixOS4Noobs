@@ -4,7 +4,7 @@ With NixOS, it's important to clear the garbage now and then. Clearing the garba
 
 - Old boot entries
 - Unused derivations
-- /nix/store/trash
+- `/nix/store/trash`
 - Stale symlinks
 
 Clearing the garbage means that certain packages which were downloaded on the fly will be removed _(For example, packages downloaded using `nix-shell -p`)_, and will have to be re-fetched in order to use them again.
