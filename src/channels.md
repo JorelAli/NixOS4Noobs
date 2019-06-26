@@ -2,7 +2,7 @@
 
 Nix channels are basically "where the downloaded packages come from". By default, on NixOS, packages are downloaded from the `nixos` channel (Is that really a surprise?)
 
-In general, when it comes to channels, there are 3 _(technically 4, but we'll dismiss small channels)_ channels that are available:
+In general, when it comes to channels, there are 3[^1] channels that are available:
 
 | Channel | Example channels |
 | ------- | ---------------- |
@@ -59,3 +59,7 @@ TODO: Coming soon!!
 ## Finding information about current nix channels
 
 The [NixOS channel update website](http://howoldis.herokuapp.com/) provides insights on when the various Nix channels were last updated, including the link to the latest commit that was included for that update. It's the quickest and easiest way for you to browse through the repository to find whether a specific package has been updated or not.
+
+-----
+
+[^1]: Technically there are 4 channels: Stable, Unstable, Old and _Small_. Small channels have much less packages, such as no desktop packages or packages for certain programming languages, as well as less tests for actual operating system usage. They're designed for servers running NixOS, where you want speedy updates. They normally build more stuff from source compared to other NixOS channels.

@@ -13,7 +13,7 @@
   - [Nix garbage collection](./garbage.md)
   - [Setting package options](./packageoptions.md)
   - [Overriding attributes](./overriding.md)
-- [Containers, Sandboxes & VMs](./containerschapter.md)
+- [Sandboxes, Containers & VMs](./containerschapter.md)
   - [Nix shell sandboxes](./nixsandboxes.md)
   - [Containers](./containers.md)
   - [Virtual Machines](./vms.md)
