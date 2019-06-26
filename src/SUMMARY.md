@@ -7,7 +7,6 @@
   - [Setting environment variables](./envvars.md)
   - [Installing fonts](./fonts.md)
   - [NixOS configuration options](./options.md)
-  - [Systemd services](./systemdservices.md)
 - [Managing Nix Packages](./packages.md)
   - [Nix channels](./channels.md)
   - [Nix garbage collection](./garbage.md)
