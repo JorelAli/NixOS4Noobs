@@ -48,13 +48,59 @@ let
 	unstable = import <unstable> {};
 in {
 	# The rest of your configuration here
+
+	environment.systemPackages = with pkgs; [
+		# To use unstable packages, precede package names with unstable.
+		# as defined in the "let ... in" section above
+		unstable.hello
+	];
+
 };
 ```
 ### Method 2: Using git revisions
 
 This method gives you much more control over what specific version of Nixpkgs you want to use on your system, however it means that updating channels (if you choose to do so) will also have to be done manually.
 
-TODO: Coming soon!!
+The only difference is that you require the following code structure:
+
+```nix
+import (builtins.fetchGit {
+	name = "NAME";
+	url = https://github.com/nixos/nixpkgs/;
+	rev = "REV";
+}) {};
+```
+
+The _NAME_ is some sort of descriptive name for your own benefit, and the _REV_ refers to the Git commit hash of your choosing (This is pretty easy to find on GitHub, it's shown as a 7-character string on the [Nixpkgs repository's commits](https://github.com/NixOS/nixpkgs) - clicking on the clipboard icon next to it copies the full hash to your clipboard)
+
+An example of using this would be as follows:
+
+```nix
+{ config, pkgs, ... }:
+
+let
+	myNixpkgs = import (builtins.fetchGit {
+		name = "nixos-unstable-2018-09-12";
+		url = https://github.com/nixos/nixpkgs/;
+		rev = "ca2ba44cab47767c8127d1c8633e2b581644eb8f";
+	}) {};
+in {
+	# The rest of your configuration here
+
+	environment.systemPackages = with pkgs; [
+		# Exactly the same as the above example
+		myNixpkgs.hello
+	];
+};
+```
+
+Alternatively, you can easily change all packages declared in the system packages to use your chosen git revision by changing the packages that are brought into scope after the `with` keyword:
+
+```nix
+environment.systemPackages = with myNixpkgs; [
+	hello
+];
+```
 
 ## Finding information about current nix channels
 
