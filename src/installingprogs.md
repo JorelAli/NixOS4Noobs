@@ -45,6 +45,15 @@ programs = {
 
 ## Method 2: Installing programs using the system packages
 
+> **Unfree packages**
+>
+> Certain packages are known as `unfree`, which means that their license states that they cannot be redistributed (for example, Google Chrome). In order to install `unfree` packages, you need to add the following to your `configuration.nix` file:
+> ```nix
+> nixpkgs.config = { 
+>     allowUnfree = true; 
+> };
+> ```
+
 This method of installing programs is the primary method of installing programs in NixOS. It basically uses the entire Nixpkgs suite of packages and allows you to choose the packages you want. The general structure in your `configuration.nix` file will look something like this:
 
 ```nix
