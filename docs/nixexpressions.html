@@ -1,0 +1,322 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Nix Expressions - NixOS4Noobs</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+    </head>
+    <body class="light">
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">var path_to_root = "";</script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { } 
+            if (theme === null || theme === undefined) { theme = 'light'; }
+            document.body.className = theme;
+            document.querySelector('html').className = theme + ' js';
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <ol class="chapter"><li class="affix"><a href="intro.html">Introduction</a></li><li class="affix"><a href="about.html">About</a></li><li><a href="gettingstarted.html"><strong aria-hidden="true">1.</strong> Getting Started</a></li><li><ol class="section"><li><a href="installingprogs.html"><strong aria-hidden="true">1.1.</strong> Installing programs</a></li><li><a href="services.html"><strong aria-hidden="true">1.2.</strong> Setting up services</a></li><li><a href="envvars.html"><strong aria-hidden="true">1.3.</strong> Setting environment variables</a></li><li><a href="fonts.html"><strong aria-hidden="true">1.4.</strong> Installing fonts</a></li><li><a href="options.html"><strong aria-hidden="true">1.5.</strong> NixOS configuration options</a></li></ol></li><li><a href="packages.html"><strong aria-hidden="true">2.</strong> Managing Nix Packages</a></li><li><ol class="section"><li><a href="channels.html"><strong aria-hidden="true">2.1.</strong> Nix channels</a></li><li><a href="garbage.html"><strong aria-hidden="true">2.2.</strong> Nix garbage collection</a></li><li><a href="packageoptions.html"><strong aria-hidden="true">2.3.</strong> Setting package options</a></li><li><a href="overriding.html"><strong aria-hidden="true">2.4.</strong> Overriding attributes [WIP]</a></li></ol></li><li><a href="containerschapter.html"><strong aria-hidden="true">3.</strong> Sandboxes &amp; Containers [WIP]</a></li><li><ol class="section"><li><a href="nixsandboxes.html"><strong aria-hidden="true">3.1.</strong> Nix shell sandboxes</a></li><li><a href="containers.html"><strong aria-hidden="true">3.2.</strong> Containers [WIP]</a></li></ol></li><li><a href="derivations.html"><strong aria-hidden="true">4.</strong> Making Nix packages [WIP]</a></li><li><ol class="section"><li><a href="buildingpackages.html"><strong aria-hidden="true">4.1.</strong> Building packages [WIP]</a></li></ol></li><li><a href="nixexpressions.html" class="active"><strong aria-hidden="true">5.</strong> Nix Expressions</a></li></ol>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar" class="menu-bar">
+                    <div id="menu-bar-sticky-container">
+                        <div class="left-buttons">
+                            <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                                <i class="fa fa-bars"></i>
+                            </button>
+                            <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                                <i class="fa fa-paint-brush"></i>
+                            </button>
+                            <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                                <li role="none"><button role="menuitem" class="theme" id="light">Light <span class="default">(default)</span></button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                            </ul>
+                            
+                            <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                                <i class="fa fa-search"></i>
+                            </button>
+                            
+                        </div>
+
+                        <h1 class="menu-title">NixOS4Noobs</h1> 
+
+                        <div class="right-buttons">
+                            <a href="print.html" title="Print this book" aria-label="Print this book">
+                                <i id="print-button" class="fa fa-print"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <a class="header" href="#nix-expressions" id="nix-expressions"><h1>Nix Expressions</h1></a>
+<p>The <code>configuration.nix</code> file is written as a <em>Nix Expression</em>, which is basically the &quot;programming language&quot; that Nix uses. In this chapter, we will cover the basics<sup class="footnote-reference"><a href="#1">1</a></sup> of writing Nix expressions, specifically for the NixOS configuration.</p>
+<div class="footnote-definition" id="1"><sup class="footnote-definition-label">1</sup>
+<p>In particular, we will cover the things that you're likely to discover in the <code>configuration.nix</code> file. We will not cover <em>all</em> of the technicalities (e.g. function definitions), but we will cover enough to get you through the configuration.</p>
+</div>
+<hr />
+<a class="header" href="#basic-data-types" id="basic-data-types"><h2>Basic data types</h2></a>
+<p>As with any programming language, there are the basic data types, which are as follows:</p>
+<ul>
+<li>
+<p><strong>Strings</strong> - Text values which are encased in quotes <code>&quot;hello&quot;</code>, or two single quotes for multi-line strings:</p>
+<pre><code class="language-nix">''
+  This is on line 1
+  This is another line
+''
+</code></pre>
+<p>If you want to use Nix variables inside your strings, you can do so using the <code>${}</code> notation, like this<sup class="footnote-reference"><a href="#2">2</a></sup>:</p>
+<pre><code class="language-nix">​```
+someSet = rec {
+    myVar = &quot;hello&quot;;
+    someString = &quot;${myVar}, world!&quot;
+}
+​```
+</code></pre>
+<div class="footnote-definition" id="2"><sup class="footnote-definition-label">2</sup>
+<p>See the section below for recursive sets - since we reference <code>myVar</code> in the declaration of <code>someString</code>, the set needs to be declared as recursive.</p>
+</div>
+</li>
+<li>
+<p><strong>Integers &amp; Floats</strong> - Numerical values, such as <code>2</code> or <code>501.23</code>. Integer and floating point numbers are inferred. If using math with integers, integer division will be used by default.</p>
+</li>
+<li>
+<p><strong>Paths</strong> - Paths to files and directories don't need quotes, they can be written just like <code>/some/directory/file.txt</code></p>
+</li>
+<li>
+<p><strong>Functions</strong> - These basically execute code. These will not be covered in NixOS4Noobs.</p>
+</li>
+<li>
+<p><strong>Lists &amp; Sets</strong> - These are explained in more detail below</p>
+</li>
+</ul>
+<a class="header" href="#lists" id="lists"><h2>Lists</h2></a>
+<p>In Nix expressions, <strong>lists are declared using square brackets</strong>, and use a <strong>space to separate each element</strong>.</p>
+<a class="header" href="#example-system-packages" id="example-system-packages"><h3>Example: System packages</h3></a>
+<p>The system packages section of the configuration file is represented as a list:</p>
+<pre><code class="language-nix">environment.systemPackages = [
+    hello
+    chromium
+];
+</code></pre>
+<p>It can also be written like this (Typically a space is put after the <code>[</code> and before the <code>]</code>, but this is optional):</p>
+<pre><code class="language-nix">environment.systemPackages = [ hello chromium ];
+</code></pre>
+<p>Complex elements which would involve spaces require brackets to &quot;contain&quot; them:</p>
+<pre><code class="language-nix">environment.systemPackages = [
+    hello
+    (import ./someLocalPackage.nix {})
+    chromium
+];
+</code></pre>
+<a class="header" href="#sets-attribute-sets" id="sets-attribute-sets"><h2>Sets (Attribute sets)</h2></a>
+<p>Sets are similar to tables with key-value pairs. They consist of elements declared by some key, and assigned a value which can be any type. <strong>Sets are declared using curly brackets</strong>, and a <strong>semicolon is used to separate each key-value pair</strong>. Sets are polymorphic (They can have multiple types for <em>values</em>, not for keys).</p>
+<pre><code class="language-nix">mySet = {
+    name = &quot;Bob&quot;;
+    otherName = &quot;Jim&quot;;
+    aNumber = 2;
+    isItWednesday = false;
+}
+</code></pre>
+<a class="header" href="#example-system-programs" id="example-system-programs"><h3>Example: System programs</h3></a>
+<p>Sets are used to declare programs for the system using the <code>programs</code> key:</p>
+<pre><code class="language-nix">programs = {
+    adb.enable = true;
+    bash.enableCompletion = true;
+    ssh.forwardX11 = true;
+};
+</code></pre>
+<a class="header" href="#sets-inside-sets" id="sets-inside-sets"><h3>Sets inside sets</h3></a>
+<p>Because sets contain elements of keys and values, where values can be of any type, there's nothing stopping you from declaring a set with an element which is also a set.</p>
+<pre><code class="language-nix">mySet = {
+    myKey = {
+        someValueInInnerSet = 10;
+    };
+}
+</code></pre>
+<p>This can get tedious and overcomplicated, so we can simplify this using the dot notation:</p>
+<pre><code class="language-nix">mySet.myKey = {
+    someValueInInnerSet = 10;
+}
+</code></pre>
+<p>Or even simpler:</p>
+<pre><code class="language-nix">mySet.myKey.someValueInInnerSet = 10;
+</code></pre>
+<a class="header" href="#example-enabling-sound-in-the-system-configuration" id="example-enabling-sound-in-the-system-configuration"><h4>Example: Enabling sound in the system configuration</h4></a>
+<p>In most configurations, enabling sound is done using the following code:</p>
+<pre><code class="language-nix">sound.enable = true;
+</code></pre>
+<p>This can be written as:</p>
+<pre><code class="language-nix">sound = {
+    enable = true;
+}
+</code></pre>
+<p>There's no preference to which one is right and which one is wrong, it's entirely up to you. Some people like to split them up to make sections easier to read.</p>
+<a class="header" href="#recursive-sets-rec" id="recursive-sets-rec"><h3>Recursive sets (<code>rec</code>)</h3></a>
+<p>Sets that use variables or values that are declared inside itself need to be declared as a recursive set. This is done using the <code>rec</code> keyword, which comes <em>just before</em> the opening curly brackets:</p>
+<pre><code class="language-nix">someSet = rec {
+    someValue = 2;
+    someOtherValue = 2 + someValue;
+}
+</code></pre>
+<p>This also applies for anything used in Strings using the <code>${}</code> notation:</p>
+<pre><code class="language-nix">someSet = rec {
+    myVar = &quot;hello&quot;;
+    someString = &quot;${myVar}, world!&quot;
+}
+</code></pre>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="buildingpackages.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a href="buildingpackages.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+            </nav>
+
+        </div>
+
+        
+        <!-- Livereload script (if served using the cli tool) -->
+        <script type="text/javascript">
+            var socket = new WebSocket("ws://localhost:3001");
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload(true); // force reload from server (not from cache)
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
+        
+
+        
+
+        
+
+        
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    </body>
+</html>

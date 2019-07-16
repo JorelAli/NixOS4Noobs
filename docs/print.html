@@ -1,0 +1,802 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>NixOS4Noobs</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+    </head>
+    <body class="light">
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">var path_to_root = "";</script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { } 
+            if (theme === null || theme === undefined) { theme = 'light'; }
+            document.body.className = theme;
+            document.querySelector('html').className = theme + ' js';
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <ol class="chapter"><li class="affix"><a href="intro.html">Introduction</a></li><li class="affix"><a href="about.html">About</a></li><li><a href="gettingstarted.html"><strong aria-hidden="true">1.</strong> Getting Started</a></li><li><ol class="section"><li><a href="installingprogs.html"><strong aria-hidden="true">1.1.</strong> Installing programs</a></li><li><a href="services.html"><strong aria-hidden="true">1.2.</strong> Setting up services</a></li><li><a href="envvars.html"><strong aria-hidden="true">1.3.</strong> Setting environment variables</a></li><li><a href="fonts.html"><strong aria-hidden="true">1.4.</strong> Installing fonts</a></li><li><a href="options.html"><strong aria-hidden="true">1.5.</strong> NixOS configuration options</a></li></ol></li><li><a href="packages.html"><strong aria-hidden="true">2.</strong> Managing Nix Packages</a></li><li><ol class="section"><li><a href="channels.html"><strong aria-hidden="true">2.1.</strong> Nix channels</a></li><li><a href="garbage.html"><strong aria-hidden="true">2.2.</strong> Nix garbage collection</a></li><li><a href="packageoptions.html"><strong aria-hidden="true">2.3.</strong> Setting package options</a></li><li><a href="overriding.html"><strong aria-hidden="true">2.4.</strong> Overriding attributes [WIP]</a></li></ol></li><li><a href="containerschapter.html"><strong aria-hidden="true">3.</strong> Sandboxes &amp; Containers [WIP]</a></li><li><ol class="section"><li><a href="nixsandboxes.html"><strong aria-hidden="true">3.1.</strong> Nix shell sandboxes</a></li><li><a href="containers.html"><strong aria-hidden="true">3.2.</strong> Containers [WIP]</a></li></ol></li><li><a href="derivations.html"><strong aria-hidden="true">4.</strong> Making Nix packages [WIP]</a></li><li><ol class="section"><li><a href="buildingpackages.html"><strong aria-hidden="true">4.1.</strong> Building packages [WIP]</a></li></ol></li><li><a href="nixexpressions.html"><strong aria-hidden="true">5.</strong> Nix Expressions</a></li></ol>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar" class="menu-bar">
+                    <div id="menu-bar-sticky-container">
+                        <div class="left-buttons">
+                            <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                                <i class="fa fa-bars"></i>
+                            </button>
+                            <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                                <i class="fa fa-paint-brush"></i>
+                            </button>
+                            <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                                <li role="none"><button role="menuitem" class="theme" id="light">Light <span class="default">(default)</span></button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                            </ul>
+                            
+                            <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                                <i class="fa fa-search"></i>
+                            </button>
+                            
+                        </div>
+
+                        <h1 class="menu-title">NixOS4Noobs</h1> 
+
+                        <div class="right-buttons">
+                            <a href="print.html" title="Print this book" aria-label="Print this book">
+                                <i id="print-button" class="fa fa-print"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <a class="header" href="#introduction" id="introduction"><h1>Introduction</h1></a>
+<p>NixOS4Noobs is a tutorial which teaches you how to use NixOS. However, this isn't like most tutorials which teaches you <em>everything</em>, it instead just tries to teach a few things which you're very likely to encounter.</p>
+<a class="header" href="#who-this-tutorial-is-for" id="who-this-tutorial-is-for"><h2>Who this tutorial is for</h2></a>
+<p>Due to the large scale of NixOS and how it can be configured and set up, NixOS4Noobs will <em>only</em> focus on <strong>a configuration-based system</strong>. This is where your entire operating system is controlled using the <code>configuration.nix</code> file and nothing else.</p>
+<p>This tutorial targets the following users:</p>
+<ul>
+<li>Users of a device which only they will access <em>(not a device for multiple users)</em></li>
+<li>Users that want to control NixOS using <em>just</em> the configuration file</li>
+<li>Users that want everything installed system-wide</li>
+</ul>
+<p>This tutorial <strong>is not</strong> for the following users:</p>
+<ul>
+<li>Those who use a device with a need for multiple users <em>(e.g. a family)</em></li>
+<li>Users that want a clear separation between system-wide and local programs and services</li>
+</ul>
+<a class="header" href="#why-use-a-configuration-based-system" id="why-use-a-configuration-based-system"><h2>Why use a configuration-based system?</h2></a>
+<p>Having a configuration based system has various advantages, namely:</p>
+<ul>
+<li>It's easy to configure - everything is in one location</li>
+<li>If something goes wrong, it's easy to pinpoint where the problem is <em>(e.g. some dodgy installation)</em></li>
+<li>It's a reproducible setup <em>(If you want to replicate a system on another device, just copy the configuration and it'll set it all up exactly as you want it to)</em> </li>
+</ul>
+<a class="header" href="#about" id="about"><h1>About</h1></a>
+<a class="header" href="#about-the-author" id="about-the-author"><h2>About the author</h2></a>
+<p>I'm just a NixOS user that is tired of seeing people struggle to figure out NixOS on the <a href="https://www.reddit.com/r/NixOS/">NixOS subreddit</a>.</p>
+<a class="header" href="#suggestions-or-fixes" id="suggestions-or-fixes"><h2>Suggestions or fixes</h2></a>
+<p>To suggest new content or topics that you deem suitable for NixOS4Noobs to cover, please feel free to <a href="https://github.com/JorelAli/NixOS4Noobs/pulls">make a pull request</a> or <a href="https://github.com/JorelAli/NixOS4Noobs/issues/new/choose">open an issue</a></p>
+<a class="header" href="#getting-started" id="getting-started"><h1>Getting Started</h1></a>
+<a class="header" href="#editing-the-system-configuration" id="editing-the-system-configuration"><h2>Editing the system configuration</h2></a>
+<p>As of NixOS 19.03 (Koi), you can open the system configuration in the default system editor with the following command:</p>
+<pre><code>$ sudo nixos-rebuild edit
+</code></pre>
+<p>Alternatively, you can edit the file located at <code>/etc/nixos/configuration.nix</code></p>
+<a class="header" href="#building-the-system-configuration" id="building-the-system-configuration"><h2>Building the system configuration</h2></a>
+<p>In order to apply any changes to the <code>configuration.nix</code> file, the NixOS configuration needs to be <em>rebuilt</em>.</p>
+<p>The <code>nixos-rebuild</code> command is used to rebuild the system configuration. In general, there are two commands you may want to run in order to properly build the system:</p>
+<a class="header" href="#rebuild--switch" id="rebuild--switch"><h3>Rebuild + Switch</h3></a>
+<pre><code>$ sudo nixos-rebuild switch
+</code></pre>
+<p>Running this command performs the following:</p>
+<ul>
+<li>Rebuilds the current <code>configuration.nix</code> file</li>
+<li>Downloads any new packages</li>
+<li>Adds a new entry to the boot menu</li>
+<li>Applies the changes of the configuration right away (whilst you're still using the system. It's basically seamless!)</li>
+</ul>
+<p>Any new packages can be used right away, any new services will be started right away, however <em>environmental variables will not be activated until the next reboot</em>.</p>
+<a class="header" href="#rebuild-no-switch" id="rebuild-no-switch"><h3>Rebuild (No switch)</h3></a>
+<pre><code>$ sudo nixos-rebuild boot
+</code></pre>
+<p>This basically does everything that <code>sudo nixos-rebuild switch</code> does, except it does not apply the changes of the configuration right away. When the system is rebooted, the newly built configuration will be used.</p>
+<a class="header" href="#installing-programs" id="installing-programs"><h1>Installing programs</h1></a>
+<p>There are many different ways of installing programs on NixOS. In this section, we will cover two methods of installing programs that use the <code>configuration.nix</code> file.</p>
+<a class="header" href="#method-1-installing-programs-using-the-programs-attribute" id="method-1-installing-programs-using-the-programs-attribute"><h2>Method 1: Installing programs using the <code>programs</code> attribute</h2></a>
+<p><em>Certain</em> programs can be installed by using the following structure in your <code>configuration.nix</code> file:</p>
+<pre><code class="language-nix">programs = {
+    # Programs go here
+};
+</code></pre>
+<p>Only a few programs can be installed this way - these programs can be found <a href="https://nixos.org/nixos/options.html#programs.">here</a> by using the NixOS options search feature, or by using the nix repl:</p>
+<pre><code class="language-nix">nix repl '&lt;nixpkgs/nixos&gt;'
+nix-repl&gt; builtins.attrNames config.programs
+</code></pre>
+<blockquote>
+<p><strong>Note</strong></p>
+<p>Using this method for installing programs is desirable if possible compared to method 2, as this normally sets the required environment variables for the program to function properly. In addition, various configuration options are available <em>(e.g. adding shell aliases to the fish shell)</em></p>
+<p>Of course, this is only an option if the specific program you want exists in the programs attribute.</p>
+</blockquote>
+<a class="header" href="#example-installing-and-setting-up-the-fish-shell" id="example-installing-and-setting-up-the-fish-shell"><h3>Example: Installing and setting up the <code>fish</code> shell</h3></a>
+<p>In this example, we enable the program <code>chromium</code>, as well as the <code>fish</code> command. We also add an alias to the <code>du</code> command called <code>dirsize</code> which can be used within the fish shell:</p>
+<pre><code class="language-nix">programs = {
+
+    chromium.enable = true;
+
+    fish = {
+        enable = true;
+        shellAliases = [
+            dirsize = &quot;du -sh&quot;
+        ];
+    };
+
+};
+</code></pre>
+<a class="header" href="#method-2-installing-programs-using-the-system-packages" id="method-2-installing-programs-using-the-system-packages"><h2>Method 2: Installing programs using the system packages</h2></a>
+<blockquote>
+<p><strong>Unfree packages</strong></p>
+<p>Certain packages are known as <code>unfree</code>, which means that their license states that they cannot be redistributed (for example, Google Chrome). In order to install <code>unfree</code> packages, you need to add the following to your <code>configuration.nix</code> file:</p>
+<pre><code class="language-nix">nixpkgs.config = { 
+    allowUnfree = true; 
+};
+</code></pre>
+</blockquote>
+<p>This method of installing programs is the primary method of installing programs in NixOS. It basically uses the entire Nixpkgs suite of packages and allows you to choose the packages you want. The general structure in your <code>configuration.nix</code> file will look something like this:</p>
+<pre><code class="language-nix">environment.systemPackages = with pkgs; [
+    # Packages go here
+];
+</code></pre>
+<p>Finding packages is a little bit more tricky compared to finding programs in method 1. The following strategies are as follows:</p>
+<a class="header" href="#using-the-nix-search-command" id="using-the-nix-search-command"><h3>Using the <code>nix search</code> command</h3></a>
+<p>Using <code>nix search</code> is the easiest way to find packages for your current version of NixOS. Simply type <code>nix search &lt;packageName&gt;</code> to search for a specific package</p>
+<pre><code>$ nix search google chrome
+* nixpkgs.google-chrome (google-chrome)
+  A freeware web browser developed by Google
+
+* nixpkgs.google-chrome-beta (google-chrome-beta)
+  A freeware web browser developed by Google
+
+* nixpkgs.google-chrome-dev (google-chrome-dev)
+  A freeware web browser developed by Google
+
+* nixpkgs.python37Packages.PyChromecast (python3.7-PyChromecast)
+  Library for Python 3.4+ to communicate with the Google Chromecast
+</code></pre>
+<p>To use a package from the <code>nix search</code> command, <strong>you must include the package name after <code>nixpkgs</code>, not the name in brackets</strong>. This is due to various package 'flavours' being packaged under a single package name.</p>
+<p>For example:</p>
+<pre><code class="language-nix">environment.systemPackages = with pkgs; [
+    google-chrome
+    gnome3.gnome-mahjongg
+];
+</code></pre>
+<a class="header" href="#using-the-online-package-search" id="using-the-online-package-search"><h3>Using the online package search</h3></a>
+<p>Using the <a href="https://nixos.org/nixos/packages.html#">NixOS package search</a> website, it's easy to find packages. The name required in the system packages from this website is the <strong>Attribute name</strong> field.</p>
+<p><img src="./vitetris.png" alt="vitetris" /></p>
+<pre><code class="language-nix">environment.systemPackages = with pkgs; [
+    vitetris
+];
+</code></pre>
+<a class="header" href="#setting-up-services" id="setting-up-services"><h1>Setting up services</h1></a>
+<p>The NixOS configuration also allows you to manage services that run in the background, in addition to programs.</p>
+<a class="header" href="#installing-nixos-services" id="installing-nixos-services"><h2>Installing NixOS services</h2></a>
+<p>Services can be found using the <a href="https://nixos.org/nixos/options.html#services.">NixOS options search website</a> to find services that have been defined by the NixOS community. Services start with the prefix <code>services.</code> and can be enabled and configured in your <code>configuration.nix</code> file.</p>
+<p>For example, to enable the <code>mpd</code> (Music Player Daemon) service, you can add it to your <code>configuration.nix</code> as follows:</p>
+<pre><code class="language-nix">services = {
+    mpd.enable = true;
+};
+</code></pre>
+<a class="header" href="#setting-environment-variables" id="setting-environment-variables"><h1>Setting environment variables</h1></a>
+<p>Environment variables can also be set using your <code>configuration.nix</code> file. This is done using the <code>environment.variables</code> setting:</p>
+<pre><code class="language-nix">environment.variables = {
+    # Environment variables go here
+};
+</code></pre>
+<a class="header" href="#single-value-environment-variables" id="single-value-environment-variables"><h2>Single value environment variables</h2></a>
+<p>Environment variables with a single value can be defined using a simple assignment of the environment variable name and its corresponding value:</p>
+<pre><code class="language-nix">environment.variables = {
+    XDG_CONFIG_HOME = &quot;$HOME/.config&quot;;
+};
+</code></pre>
+<a class="header" href="#multi-value-environment-variables" id="multi-value-environment-variables"><h2>Multi value environment variables</h2></a>
+<p>Environment variables that use a list of values (e.g. <code>$PATH</code>, <code>$XCURSOR_PATH</code>) can be declared using a Nix Expression list type as shown:</p>
+<pre><code class="language-nix">environment.variables = {
+    XCURSOR_PATH = [
+        &quot;$HOME/.icons&quot;
+        &quot;$HOME/.nix-profile/share/icons&quot;
+    ];
+};
+</code></pre>
+<a class="header" href="#using-the-system-path" id="using-the-system-path"><h2>Using the system path</h2></a>
+<p>To use the current system path which will be generated when building the NixOS configuration, you can use the Nix Expression string with enclosed Nix expressions:</p>
+<pre><code class="language-nix">environment.variables = {
+    XCURSOR_PATH = [
+        &quot;${config.system.path}/share/icons&quot;
+    ];
+};
+</code></pre>
+<p>This will map <code>${config.system.path}</code> to the directory <code>/run/current-system/sw/</code> when the system is built.</p>
+<a class="header" href="#installing-fonts" id="installing-fonts"><h1>Installing fonts</h1></a>
+<p>Installing fonts is slightly different compared to installing regular system packages - <strong>fonts must be installed under the fonts attribute</strong>.</p>
+<p>The general structure is as follows:</p>
+<pre><code class="language-nix">fonts.fonts = with pkgs; [
+    # Fonts go here
+];
+</code></pre>
+<p>Unfortunately, searching for font packages is <em>incredibly unintuitive</em>. Font packages look just like regular packages and adding them to the system packages <em>does not install them properly</em>. The 100% best safest way to find fonts is as follows:</p>
+<ol>
+<li>Search for the font you're looking for on the <a href="https://nixos.org/nixos/packages.html#font">NixOS packages search website</a></li>
+<li>Click on the package on the website (this shows a quick description of the package, along with various other information)</li>
+<li>Make sure that the package's <em>Nix expression</em> starts with <code>pkgs/data/fonts</code></li>
+</ol>
+<p>Then, as similar to installing system packages, add the <strong>Attribute name</strong> to the fonts section:</p>
+<pre><code class="language-nix">fonts.fonts = with pkgs; [
+    comic-relief
+    font-awesome_4
+];
+</code></pre>
+<a class="header" href="#nixos-configuration-options" id="nixos-configuration-options"><h1>NixOS configuration options</h1></a>
+<p>The NixOS configuration file also contains a section for other options to manage the system. This includes, but not limited to:</p>
+<ul>
+<li>Configuring the hardware setup</li>
+<li>Configuring TTYs</li>
+<li>Configuring security systems</li>
+<li>Configuring the way Nix builds your configuration</li>
+<li>Configuring the boot setup</li>
+</ul>
+<p>Searching for these options is a little more tricky, but here are various ways to go about doing so:</p>
+<a class="header" href="#method-1-using-the-online-options-search" id="method-1-using-the-online-options-search"><h2>Method 1: Using the online options search</h2></a>
+<blockquote>
+<p>This method is best for finding new options and finding examples of alternative values for options</p>
+</blockquote>
+<p>The <a href="https://nixos.org/nixos/options.html#">Search NixOS options</a> website is the best way to search for options. It includes descriptions of each option, along with its default value and sometimes an example of alternate values. Using options is as simple as declaring the <strong>Option name</strong> in your <code>configuration.nix</code> file and assigning a value to it:</p>
+<pre><code class="language-nix">hardware.bluetooth.enable = true;
+</code></pre>
+<a class="header" href="#method-2-using-the-nixos-option-command" id="method-2-using-the-nixos-option-command"><h2>Method 2: Using the <code>nixos-option</code> command</h2></a>
+<blockquote>
+<p>This method is best for finding where your current system's configuration settings are declared</p>
+</blockquote>
+<p>The <code>nix-option</code> command lets you browse the options by name. Compared to using the website, this is a lot more tedious and slow.</p>
+<pre><code>$ nixos-option
+This attribute set contains:
+_module
+appstream
+assertions
+boot
+...
+
+$ nixos-option hardware
+This attribute set contains:
+bladeRF
+bluetooth
+brightnessctl
+
+$ nixos-option hardware.bluetooth
+This attribute set contains:
+enable
+extraConfig
+package
+powerOnBoot
+</code></pre>
+<p>If you reach the final &quot;leaf&quot; node of an option, the <code>nixos-option</code> command will provide information about that option, as well as the current assigned value in your current system configuration. This is the best method for searching for options that are defined in your current system configuration, especially if you have your configuration split over multiple files.</p>
+<pre><code>$ nixos-option hardware.bluetooth.enable
+Value: 
+true
+
+Default:
+false
+
+Example:
+true
+
+Description:
+&quot;Whether to enable support for Bluetooth..&quot;
+
+Declared by:
+&quot;/nix/var/nix/profiles/per-user/root/channels/nixos/nixos/modules/services/hardware/bluetooth.nix&quot;
+
+Defined by:
+&quot;/etc/nixos/configuration.&quot;
+</code></pre>
+<a class="header" href="#method-3-using-the-nix-repl" id="method-3-using-the-nix-repl"><h2>Method 3: Using the Nix repl</h2></a>
+<blockquote>
+<p>This method is best for finding the values of your current system's configuration</p>
+</blockquote>
+<p>Opening a Nix repl with the <code>'&lt;nixpkgs/nixos&gt;'</code> parameter allows you to browse your current <code>configuration.nix</code> file as a parsed Nix expression. Compared to <code>nixos-option</code>, the Nix repl is a much faster way of traversing the set of system configuration options with its tab completion facility.</p>
+<p><em>(In the example below, wherever you see <code>[Tab]</code>, this means press the tab button)</em></p>
+<pre><code class="language-nix">$ nix repl '&lt;nixpkgs/nixos&gt;'
+
+nix-repl&gt; config.[TAB]
+config._module          config.i18n             config.programs
+config.appstream        config.ids              config.security
+config.assertions       config.jobs             config.services
+...
+</code></pre>
+<p>You can also use the Nix repl to view the current values of your current system configuration:</p>
+<pre><code>$ nix repl '&lt;nixpkgs/nixos&gt;'
+
+nix-repl&gt; config.hardware.bluetooth.enable
+true
+</code></pre>
+<a class="header" href="#method-4-using-man-configurationnix" id="method-4-using-man-configurationnix"><h2>Method 4: Using <code>man configuration.nix</code></h2></a>
+<p>The <code>man configuration.nix</code> command displays all options that is available for the <code>configuration.nix</code> file. It's basically the same as Method 1, except searching for certain options is a little bit more tricky and technical. Using the <code>/</code> key, it is possible to search the man page for a specific option.</p>
+<a class="header" href="#method-5-using-other-peoples-configurationnix-file" id="method-5-using-other-peoples-configurationnix-file"><h2>Method 5: Using other people's <code>configuration.nix</code> file</h2></a>
+<p>One of the best ways of figuring out how to use various NixOS configuration options is to look at other NixOS user's configuration files. <a href="https://search.tx0.co/?q=&amp;i=nope&amp;files=configuration.nix&amp;repos=">This website</a> is dedicated to a set of repositories of NixOS users and can be used to search for certain attributes in their specific configuration files by using the <em>File Path</em> setting in the Advanced section below the main textbox.</p>
+<p>This also includes links to their repositories to where the code is declared. In addition, <a href="https://github.com/JorelAli/nixos/blob/master/configuration.nix">JorelAli's configuration</a> is a pretty good resource that is well documented.</p>
+<a class="header" href="#managing-nix-packages" id="managing-nix-packages"><h1>Managing Nix Packages</h1></a>
+<a class="header" href="#nix-channels" id="nix-channels"><h1>Nix channels</h1></a>
+<p>Nix channels are basically &quot;where the downloaded packages come from&quot;. By default, on NixOS, packages are downloaded from the <code>nixos</code> channel (Is that really a surprise?)</p>
+<p>In general, when it comes to channels, there are 3<sup class="footnote-reference"><a href="#1">1</a></sup> channels that are available:</p>
+<table><thead><tr><th> Channel </th><th> Example channels </th></tr></thead><tbody>
+<tr><td> Stable channels </td><td> <code>nixos-19.03</code> </td></tr>
+<tr><td> Unstable channels (bleeding-edge) </td><td> <code>nixos-unstable</code> </td></tr>
+<tr><td> Old channels </td><td> <code>nixos-18.03</code>, <code>nixos-17.09</code> </td></tr>
+</tbody></table>
+<a class="header" href="#using-different-channels-in-your-configuration" id="using-different-channels-in-your-configuration"><h2>Using different channels in your configuration</h2></a>
+<p>There are two major methods of using different channels in your <code>configuration.nix</code> file. Which one you choose is entirely up to you, each have their own perks and drawbacks.</p>
+<blockquote>
+<p><strong>Warning</strong></p>
+<p>There are multiple different &quot;defined&quot; NixOS channels out there. Some are named <code>nixos</code>, whereas others are named <code>nixpkgs</code>. <strong>Do not use nixpkgs channels on NixOS</strong>. The <code>nixos</code> channels have different tests to the <code>nixpkgs</code> channels and are designed for the operating system as a whole, unlike the <code>nixpkgs</code> channels.</p>
+</blockquote>
+<a class="header" href="#method-1-using-nix-channel" id="method-1-using-nix-channel"><h3>Method 1: Using <code>nix-channel</code></h3></a>
+<p>The <code>nix-channel</code> command is designed to manage multiple nix channels on your system. It's easy to update channels to the latest versions and add or remove channels.</p>
+<ul>
+<li>
+<p>To list all channels that are available in your system, use the <code>--list</code> flag:</p>
+<pre><code>$ sudo nix-channel --list
+</code></pre>
+</li>
+<li>
+<p>To add a new channel (for example <code>nixos-unstable</code>), use the <code>--add</code> flag, followed by the URL of the channel and a name to identify it by. The list of channel URLs can be found at <a href="https://nixos.org/channels/">https://nixos.org/channels/</a>.</p>
+<pre><code>$ sudo nix-channel --add https://nixos.org/channels/nixos-unstable unstable
+</code></pre>
+</li>
+<li>
+<p>To update a channel, use the <code>--update</code> flag, followed by the channel name that you declared when you added the channel:</p>
+<pre><code>$ sudo nix-channel --update unstable
+</code></pre>
+</li>
+</ul>
+<p>Once you've added your desired channels, you can then add them to your <code>configuration.nix</code> file. This can be done using the Nix <code>let</code> expression, as followed:</p>
+<pre><code class="language-nix">{ config, pkgs, ... }:
+
+let
+    unstable = import &lt;unstable&gt; {};
+in {
+    # The rest of your configuration here
+
+    environment.systemPackages = with pkgs; [
+        # To use unstable packages, precede package names with unstable.
+        # as defined in the &quot;let ... in&quot; section above
+        unstable.hello
+    ];
+
+};
+</code></pre>
+<a class="header" href="#method-2-using-git-revisions" id="method-2-using-git-revisions"><h3>Method 2: Using git revisions</h3></a>
+<p>This method gives you much more control over what specific version of Nixpkgs you want to use on your system, however it means that updating channels (if you choose to do so) will also have to be done manually.</p>
+<p>The only difference is that you require the following code structure:</p>
+<pre><code class="language-nix">import (builtins.fetchGit {
+    name = &quot;NAME&quot;;
+    url = https://github.com/nixos/nixpkgs/;
+    rev = &quot;REV&quot;;
+}) {};
+</code></pre>
+<p>The <em>NAME</em> is some sort of descriptive name for your own benefit, and the <em>REV</em> refers to the Git commit hash of your choosing (This is pretty easy to find on GitHub, it's shown as a 7-character string on the <a href="https://github.com/NixOS/nixpkgs">Nixpkgs repository's commits</a> - clicking on the clipboard icon next to it copies the full hash to your clipboard)</p>
+<p>An example of using this would be as follows:</p>
+<pre><code class="language-nix">{ config, pkgs, ... }:
+
+let
+    myNixpkgs = import (builtins.fetchGit {
+        name = &quot;nixos-unstable-2018-09-12&quot;;
+        url = https://github.com/nixos/nixpkgs/;
+        rev = &quot;ca2ba44cab47767c8127d1c8633e2b581644eb8f&quot;;
+    }) {};
+in {
+    # The rest of your configuration here
+
+    environment.systemPackages = with pkgs; [
+        # Exactly the same as the above example
+        myNixpkgs.hello
+    ];
+};
+</code></pre>
+<p>Alternatively, you can easily change all packages declared in the system packages to use your chosen git revision by changing the packages that are brought into scope after the <code>with</code> keyword:</p>
+<pre><code class="language-nix">environment.systemPackages = with myNixpkgs; [
+    hello
+];
+</code></pre>
+<a class="header" href="#finding-information-about-current-nix-channels" id="finding-information-about-current-nix-channels"><h2>Finding information about current nix channels</h2></a>
+<p>The <a href="http://howoldis.herokuapp.com/">NixOS channel update website</a> provides insights on when the various Nix channels were last updated, including the link to the latest commit that was included for that update. It's the quickest and easiest way for you to browse through the repository to find whether a specific package has been updated or not.</p>
+<hr />
+<div class="footnote-definition" id="1"><sup class="footnote-definition-label">1</sup>
+<p>Technically there are 4 channels: Stable, Unstable, Old and <em>Small</em>. Small channels have much less packages, such as no desktop packages or packages for certain programming languages, as well as less tests for actual operating system usage. They're designed for servers running NixOS, where you want speedy updates. They normally build more stuff from source compared to other NixOS channels.</p>
+</div>
+<a class="header" href="#nix-garbage-collection" id="nix-garbage-collection"><h1>Nix garbage collection</h1></a>
+<p>With NixOS, it's important to clear the garbage now and then. Clearing the garbage removes the following things from your system:</p>
+<ul>
+<li>Old boot entries</li>
+<li>Unused derivations</li>
+<li><code>/nix/store/trash</code></li>
+<li>Stale symlinks</li>
+</ul>
+<p>Clearing the garbage means that certain packages which were downloaded on the fly will be removed <em>(For example, packages downloaded using <code>nix-shell -p</code>)</em>, and will have to be re-fetched in order to use them again.</p>
+<a class="header" href="#clearing-all-of-the-garbage" id="clearing-all-of-the-garbage"><h2>Clearing all of the garbage</h2></a>
+<blockquote>
+<p><strong>Warning</strong></p>
+<p>Clearing old boot entries makes rolling back to a previous configuration impossible. Only do this if you are certain that your current system is stable. <strong>This action cannot be undone.</strong></p>
+</blockquote>
+<p>Using the <code>nix-collect-garbage</code> command is used to manage all of your garbage cleaning needs. To remove everything from the Nix store that is not used by the current system (so, this includes old derivations, files, symlinks and boot entries), run the following command:</p>
+<pre><code>sudo nix-collect-garbage -d
+sudo nixos-rebuild switch
+</code></pre>
+<p>Rebuilding the system at the end is required to update the set of boot entries.</p>
+<a class="header" href="#clearing-some-of-the-garbage" id="clearing-some-of-the-garbage"><h2>Clearing some of the garbage</h2></a>
+<p>Instead of clearing absolutely everything, it's often better to just clear the majority of the garbage. This doesn't clear the boot entries and ensures that previous generations are kept safe, so you are able to rollback if needed:</p>
+<pre><code>sudo nix-collect-garbage
+</code></pre>
+<a class="header" href="#automatically-clearing-garbage" id="automatically-clearing-garbage"><h2>Automatically clearing garbage</h2></a>
+<p>NixOS provides a configuration option that allows it to automatically collect the garbage at certain time intervals. This is done using the <code>nix.gc</code> option:</p>
+<pre><code class="language-nix">nix.gc = {
+    automatic = true;  # Enable the automatic garbage collector
+    dates = &quot;03:15&quot;;   # When to run the garbage collector
+    options = &quot;-d&quot;;    # Arguments to pass to nix-collect-garbage
+};
+</code></pre>
+<p>The format for the <code>dates</code> attribute can be found at the <a href="https://www.freedesktop.org/software/systemd/man/systemd.time.html">systemd.time man page</a>.</p>
+<a class="header" href="#setting-package-options" id="setting-package-options"><h1>Setting package options</h1></a>
+<p>The NixOS configuration file not only allows you to configure the system, but it also allows you to configure the process of building itself. This is done by changing the attributes of the <code>nixpkgs</code> option. This also allows you to edit the settings of other applications which are installed in your system packages.</p>
+<a class="header" href="#enabling-unfree-software" id="enabling-unfree-software"><h2>Enabling unfree software</h2></a>
+<p>As mentioned in the chapter on installing programs, unfree software (software that is not permitted to be redistributed) can be installed by using the following in your <code>configuration.nix</code> file:</p>
+<pre><code class="language-nix">nixpkgs.config = {
+    allowUnfree = true;
+};
+</code></pre>
+<a class="header" href="#setting-package-specific-settings" id="setting-package-specific-settings"><h2>Setting package specific settings</h2></a>
+<p>Using the <a href="https://nixos.org/nixos/packages.html#">NixOS package search website</a> that was described in the chapter on installing programs, we are able to search for packages that we want. When you click on the package, it provides information about the package. In particular, we want to look at the <strong>Nix expression</strong> for the package. This concept is better explained using an example:</p>
+<a class="header" href="#example-enabling-flash-on-chromium" id="example-enabling-flash-on-chromium"><h3>Example: Enabling flash on Chromium:</h3></a>
+<p>Firstly, we search for chromium using the NixOS package website. Clicking on the result provides us with a link to the Nix expression where this package is defined:</p>
+<p><img src="./chromium.png" alt="chromium result from the online website" /></p>
+<p>Following the link leads us to a file called <code>browser.nix</code>. Unfortunately, in order to find the list of potential settings, we need to use the main endpoint for packages, which is the <code>default.nix</code> file. This can be done by changing directories (shown at the top of the file on GitHub) to find the relevant <code>default.nix</code> file.</p>
+<p>A snippet of the chromium <code>default.nix</code> file is shown below:</p>
+<pre><code class="language-nix">...
+
+# package customization
+, channel ? &quot;stable&quot;
+, enableNaCl ? false
+, gnomeSupport ? false, gnome ? null
+, gnomeKeyringSupport ? false
+, proprietaryCodecs ? true
+, enablePepperFlash ? false
+, enableWideVine ? false
+, cupsSupport ? true
+, pulseSupport ? config.pulseaudio or stdenv.isLinux
+, commandLineArgs ? &quot;&quot;
+}:
+
+...
+</code></pre>
+<p>Any parameters followed with a <code>?</code> are basically optional, where the value after the <code>?</code> is their default value. In this example, we want to enable flash, so what we want to do is basically redefine the package named &quot;chromium&quot; with a copy of the package, except with the <code>enablePepperFlash</code> option set to true.</p>
+<pre><code class="language-nix">nixpkgs.config = {
+
+    chromium = {
+        enablePepperFlash = true;
+    };
+
+};
+</code></pre>
+<p>And it's that easy. This basically changes the package <code>chromium</code> which is used in <code>environment.systemPackages</code> to our new version of chromium that has pepper flash enabled (Pepper Flash is basically flash, but maintained by Google instead of Adobe). When the configuration is built, it will use the version of chromium that we have declared as opposed to the default version of chromium.</p>
+<a class="header" href="#overriding-attributes" id="overriding-attributes"><h1>Overriding attributes</h1></a>
+<a class="header" href="#sandboxes--containers" id="sandboxes--containers"><h1>Sandboxes &amp; Containers</h1></a>
+<a class="header" href="#nix-shell-sandboxes" id="nix-shell-sandboxes"><h1>Nix shell sandboxes</h1></a>
+<p>Say you want to test out a program, but don't want to go through all of the effort of adding it to your system configuration and rebuilding it. This is where Nix shell comes in<sup class="footnote-reference"><a href="#1">1</a></sup>.</p>
+<a class="header" href="#temporarily-using-programs" id="temporarily-using-programs"><h2>Temporarily using programs</h2></a>
+<p>To temporarily bring a Nix package into the scope of your current terminal, you can use the <code>nix-shell -p</code> command. This lets you specify Nix packages which will be included in the &quot;nix shell&quot; environment, <em><strong>as well as your current packages</strong></em>.</p>
+<pre><code>$ nix-shell -p hello
+
+[nix-shell:~]$ hello
+Hello, world!
+</code></pre>
+<p>You are still able to modify the environment around you (e.g. create folders, edit files, open programs that are currently installed on your system). When you exit the nix shell (Using the <code>exit</code> command), that package is not present on your current system. For example, if I use <code>nix-shell -p hello</code>, the <code>hello</code> command is <em>only</em> present in the nix shell even if it wasn't installed with my main configuration.</p>
+<p>To add multiple packages, include their names (as if you were adding it to your <code>configuration.nix</code> file) with a space between each one:</p>
+<pre><code>$ nix-shell -p hello gnome3.gnome-mahjongg vitetris
+</code></pre>
+<a class="header" href="#pure-nix-shell-environments" id="pure-nix-shell-environments"><h2>Pure Nix shell environments</h2></a>
+<p>By adding the <code>--pure</code> tag to the <code>nix-shell</code> command, you are able to create an environment which contains <strong>none</strong> of the packages installed on your current system.</p>
+<p>For example, if you have the following in your <code>configuration.nix</code> file:</p>
+<pre><code class="language-nix">environment.systemPackages = with pkgs; [
+    hello
+];
+</code></pre>
+<p>Running the <code>hello</code> command in a pure nix shell that doesn't have the <em>hello</em> package will produce the following result:</p>
+<pre><code>$ nix-shell --pure -p
+
+[nix-shell:~]$ hello
+The program 'hello' is currently not installed. It is provided by several packages. You can install it by typing one of the following:
+    nix-env -iA nixos.hello
+    nix-env -iA nixos.mbedtls
+    nix-env -iA nixos.perkeep
+</code></pre>
+<a class="header" href="#garbage-collection-of-nix-shells" id="garbage-collection-of-nix-shells"><h2>Garbage collection of Nix shells</h2></a>
+<p>When a package is downloaded temporarily for use in the Nix shell, it is stored in the Nix store (in <code>/nix/store</code>) until garbage collected. Until it is garbage collected, opening the same Nix shell for downloaded programs will be instant (as they're already downloaded).</p>
+<p>As stated in the chapter on garbage collection, running the Nix garbage collector will remove any temporarily installed programs. Once garbage collected, in order to use them again, they will be redownloaded when a Nix shell is opened that requires packages which aren't in the Nix store.</p>
+<a class="header" href="#nix-shells-with-fish-or-zsh" id="nix-shells-with-fish-or-zsh"><h2>Nix shells with <code>fish</code> or <code>zsh</code></h2></a>
+<p>When using Nix shells, it can sometimes be useful to keep track of what packages are currently installed in that instance of the Nix shell. A helpful tool is the <a href="https://github.com/haslersn/any-nix-shell">any-nix-shell</a>, which shows the information of temporarily installed packages when using the fish shell or the z shell.</p>
+<hr />
+<div class="footnote-definition" id="1"><sup class="footnote-definition-label">1</sup>
+<p>The Nix shell is capable of much more advanced things than just sandboxes, but for the sake of a NixOS4Noobs, we'll just assume it's used for sandboxes.</p>
+</div>
+<a class="header" href="#containers" id="containers"><h1>Containers</h1></a>
+<p>TODO: Creating containers.</p>
+<a class="header" href="#making-nix-packages" id="making-nix-packages"><h1>Making Nix packages</h1></a>
+<a class="header" href="#building-packages" id="building-packages"><h1>Building packages</h1></a>
+<a class="header" href="#nix-expressions" id="nix-expressions"><h1>Nix Expressions</h1></a>
+<p>The <code>configuration.nix</code> file is written as a <em>Nix Expression</em>, which is basically the &quot;programming language&quot; that Nix uses. In this chapter, we will cover the basics<sup class="footnote-reference"><a href="#1">1</a></sup> of writing Nix expressions, specifically for the NixOS configuration.</p>
+<div class="footnote-definition" id="1"><sup class="footnote-definition-label">1</sup>
+<p>In particular, we will cover the things that you're likely to discover in the <code>configuration.nix</code> file. We will not cover <em>all</em> of the technicalities (e.g. function definitions), but we will cover enough to get you through the configuration.</p>
+</div>
+<hr />
+<a class="header" href="#basic-data-types" id="basic-data-types"><h2>Basic data types</h2></a>
+<p>As with any programming language, there are the basic data types, which are as follows:</p>
+<ul>
+<li>
+<p><strong>Strings</strong> - Text values which are encased in quotes <code>&quot;hello&quot;</code>, or two single quotes for multi-line strings:</p>
+<pre><code class="language-nix">''
+  This is on line 1
+  This is another line
+''
+</code></pre>
+<p>If you want to use Nix variables inside your strings, you can do so using the <code>${}</code> notation, like this<sup class="footnote-reference"><a href="#2">2</a></sup>:</p>
+<pre><code class="language-nix">​```
+someSet = rec {
+    myVar = &quot;hello&quot;;
+    someString = &quot;${myVar}, world!&quot;
+}
+​```
+</code></pre>
+<div class="footnote-definition" id="2"><sup class="footnote-definition-label">2</sup>
+<p>See the section below for recursive sets - since we reference <code>myVar</code> in the declaration of <code>someString</code>, the set needs to be declared as recursive.</p>
+</div>
+</li>
+<li>
+<p><strong>Integers &amp; Floats</strong> - Numerical values, such as <code>2</code> or <code>501.23</code>. Integer and floating point numbers are inferred. If using math with integers, integer division will be used by default.</p>
+</li>
+<li>
+<p><strong>Paths</strong> - Paths to files and directories don't need quotes, they can be written just like <code>/some/directory/file.txt</code></p>
+</li>
+<li>
+<p><strong>Functions</strong> - These basically execute code. These will not be covered in NixOS4Noobs.</p>
+</li>
+<li>
+<p><strong>Lists &amp; Sets</strong> - These are explained in more detail below</p>
+</li>
+</ul>
+<a class="header" href="#lists" id="lists"><h2>Lists</h2></a>
+<p>In Nix expressions, <strong>lists are declared using square brackets</strong>, and use a <strong>space to separate each element</strong>.</p>
+<a class="header" href="#example-system-packages" id="example-system-packages"><h3>Example: System packages</h3></a>
+<p>The system packages section of the configuration file is represented as a list:</p>
+<pre><code class="language-nix">environment.systemPackages = [
+    hello
+    chromium
+];
+</code></pre>
+<p>It can also be written like this (Typically a space is put after the <code>[</code> and before the <code>]</code>, but this is optional):</p>
+<pre><code class="language-nix">environment.systemPackages = [ hello chromium ];
+</code></pre>
+<p>Complex elements which would involve spaces require brackets to &quot;contain&quot; them:</p>
+<pre><code class="language-nix">environment.systemPackages = [
+    hello
+    (import ./someLocalPackage.nix {})
+    chromium
+];
+</code></pre>
+<a class="header" href="#sets-attribute-sets" id="sets-attribute-sets"><h2>Sets (Attribute sets)</h2></a>
+<p>Sets are similar to tables with key-value pairs. They consist of elements declared by some key, and assigned a value which can be any type. <strong>Sets are declared using curly brackets</strong>, and a <strong>semicolon is used to separate each key-value pair</strong>. Sets are polymorphic (They can have multiple types for <em>values</em>, not for keys).</p>
+<pre><code class="language-nix">mySet = {
+    name = &quot;Bob&quot;;
+    otherName = &quot;Jim&quot;;
+    aNumber = 2;
+    isItWednesday = false;
+}
+</code></pre>
+<a class="header" href="#example-system-programs" id="example-system-programs"><h3>Example: System programs</h3></a>
+<p>Sets are used to declare programs for the system using the <code>programs</code> key:</p>
+<pre><code class="language-nix">programs = {
+    adb.enable = true;
+    bash.enableCompletion = true;
+    ssh.forwardX11 = true;
+};
+</code></pre>
+<a class="header" href="#sets-inside-sets" id="sets-inside-sets"><h3>Sets inside sets</h3></a>
+<p>Because sets contain elements of keys and values, where values can be of any type, there's nothing stopping you from declaring a set with an element which is also a set.</p>
+<pre><code class="language-nix">mySet = {
+    myKey = {
+        someValueInInnerSet = 10;
+    };
+}
+</code></pre>
+<p>This can get tedious and overcomplicated, so we can simplify this using the dot notation:</p>
+<pre><code class="language-nix">mySet.myKey = {
+    someValueInInnerSet = 10;
+}
+</code></pre>
+<p>Or even simpler:</p>
+<pre><code class="language-nix">mySet.myKey.someValueInInnerSet = 10;
+</code></pre>
+<a class="header" href="#example-enabling-sound-in-the-system-configuration" id="example-enabling-sound-in-the-system-configuration"><h4>Example: Enabling sound in the system configuration</h4></a>
+<p>In most configurations, enabling sound is done using the following code:</p>
+<pre><code class="language-nix">sound.enable = true;
+</code></pre>
+<p>This can be written as:</p>
+<pre><code class="language-nix">sound = {
+    enable = true;
+}
+</code></pre>
+<p>There's no preference to which one is right and which one is wrong, it's entirely up to you. Some people like to split them up to make sections easier to read.</p>
+<a class="header" href="#recursive-sets-rec" id="recursive-sets-rec"><h3>Recursive sets (<code>rec</code>)</h3></a>
+<p>Sets that use variables or values that are declared inside itself need to be declared as a recursive set. This is done using the <code>rec</code> keyword, which comes <em>just before</em> the opening curly brackets:</p>
+<pre><code class="language-nix">someSet = rec {
+    someValue = 2;
+    someOtherValue = 2 + someValue;
+}
+</code></pre>
+<p>This also applies for anything used in Strings using the <code>${}</code> notation:</p>
+<pre><code class="language-nix">someSet = rec {
+    myVar = &quot;hello&quot;;
+    someString = &quot;${myVar}, world!&quot;
+}
+</code></pre>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+
+                
+            </nav>
+
+        </div>
+
+        
+        <!-- Livereload script (if served using the cli tool) -->
+        <script type="text/javascript">
+            var socket = new WebSocket("ws://localhost:3001");
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload(true); // force reload from server (not from cache)
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
+        
+
+        
+
+        
+
+        
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+        
+        <script type="text/javascript">
+        window.addEventListener('load', function() {
+            window.setTimeout(window.print, 100);
+        });
+        </script>
+        
+        
+
+    </body>
+</html>
