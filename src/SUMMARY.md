@@ -1,6 +1,9 @@
 # Summary
 
 [Introduction](./intro.md)
+
+[About](./about.md)
+
 - [Getting Started](./gettingstarted.md)
   - [Installing programs](./installingprogs.md)
   - [Setting up services](./services.md)
@@ -11,14 +14,10 @@
   - [Nix channels](./channels.md)
   - [Nix garbage collection](./garbage.md)
   - [Setting package options](./packageoptions.md)
-  - [Overriding attributes](./overriding.md)
-- [Sandboxes, Containers & VMs](./containerschapter.md)
+  - [Overriding attributes [WIP]](./overriding.md)
+- [Sandboxes & Containers [WIP]](./containerschapter.md)
   - [Nix shell sandboxes](./nixsandboxes.md)
-  - [Containers](./containers.md)
-  - [Virtual Machines](./vms.md)
-- [Making Nix packages](./derivations.md)
-  - [Building packages](./buildingpackages.md)
+  - [Containers [WIP]](./containers.md)
+- [Making Nix packages [WIP]](./derivations.md)
+  - [Building packages [WIP]](./buildingpackages.md)
 - [Nix Expressions](./nixexpressions.md)
-- [Unsafe NixOS](./unsafe.md)
-  - [nix.readOnlyStore](./readonly.md)
-  - [FHS](./fhs.md)

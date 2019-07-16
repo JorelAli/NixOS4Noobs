@@ -1,7 +1,5 @@
 # Getting Started
 
-TODO: Maybe work on this a bit more?
-
 ## Editing the system configuration
 
 As of NixOS 19.03 (Koi), you can open the system configuration in the default system editor with the following command:

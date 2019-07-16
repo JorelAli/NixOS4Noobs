@@ -57,4 +57,4 @@ When using Nix shells, it can sometimes be useful to keep track of what packages
 
 -----
 
-[^1]: The Nix shell is capable of much more advanced things than just sandboxes, but for the sake of a NixOS for Noobs, we'll just assume it's used for sandboxes.
+[^1]: The Nix shell is capable of much more advanced things than just sandboxes, but for the sake of a NixOS4Noobs, we'll just assume it's used for sandboxes.

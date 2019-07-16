@@ -6,6 +6,40 @@ The `configuration.nix` file is written as a _Nix Expression_, which is basicall
 
 -----
 
+## Basic data types
+
+As with any programming language, there are the basic data types, which are as follows:
+
+* **Strings** - Text values which are encased in quotes `"hello"`, or two single quotes for multi-line strings:
+
+  ```nix
+  ''
+  	This is on line 1
+  	This is another line
+  ''
+  ```
+
+  If you want to use Nix variables inside your strings, you can do so using the `${}` notation, like this[^2]:
+
+  ```nix
+  ​```
+  someSet = rec {
+      myVar = "hello";
+      someString = "${myVar}, world!"
+  }
+  ​```
+  ```
+
+  [^2]: See the section below for recursive sets - since we reference `myVar` in the declaration of `someString`, the set needs to be declared as recursive.
+
+* **Integers & Floats** - Numerical values, such as `2` or `501.23`. Integer and floating point numbers are inferred. If using math with integers, integer division will be used by default.
+
+* **Paths** - Paths to files and directories don't need quotes, they can be written just like `/some/directory/file.txt`
+
+* **Functions** - These basically execute code. These will not be covered in NixOS4Noobs.
+
+* **Lists & Sets** - These are explained in more detail below
+
 ## Lists
 
 In Nix expressions, **lists are declared using square brackets**, and use a **space to separate each element**.
@@ -104,3 +138,23 @@ sound = {
 ```
 
 There's no preference to which one is right and which one is wrong, it's entirely up to you. Some people like to split them up to make sections easier to read.
+
+### Recursive sets (`rec`)
+
+Sets that use variables or values that are declared inside itself need to be declared as a recursive set. This is done using the `rec` keyword, which comes _just before_ the opening curly brackets:
+
+```nix
+someSet = rec {
+    someValue = 2;
+    someOtherValue = 2 + someValue;
+}
+```
+
+This also applies for anything used in Strings using the `${}` notation:
+
+```nix
+someSet = rec {
+    myVar = "hello";
+    someString = "${myVar}, world!"
+}
+```
