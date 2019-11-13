@@ -24,7 +24,7 @@ hardware.bluetooth.enable = true;
 
 > This method is best for finding where your current system's configuration settings are declared
 
-The `nix-option` command lets you browse the options by name. Compared to using the website, this is a lot more tedious and slow.
+The `nixos-option` command lets you browse the options by name. Compared to using the website, this is a lot more tedious and slow.
 
 ```
 $ nixos-option
