@@ -4,6 +4,8 @@
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
         <title>Nix channels - NixOS4Noobs</title>
+        
+
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -32,7 +34,10 @@
     </head>
     <body class="light">
         <!-- Provide site root to javascript -->
-        <script type="text/javascript">var path_to_root = "";</script>
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = "light";
+        </script>
 
         <!-- Work around some values being stored in localStorage wrapped in quotes -->
         <script type="text/javascript">
@@ -53,8 +58,8 @@
         <!-- Set the theme before any content is loaded, prevents flash -->
         <script type="text/javascript">
             var theme;
-            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { } 
-            if (theme === null || theme === undefined) { theme = 'light'; }
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
             document.body.className = theme;
             document.querySelector('html').className = theme + ' js';
         </script>
@@ -72,7 +77,10 @@
         </script>
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
-            <ol class="chapter"><li class="affix"><a href="intro.html">Introduction</a></li><li class="affix"><a href="about.html">About</a></li><li><a href="gettingstarted.html"><strong aria-hidden="true">1.</strong> Getting Started</a></li><li><ol class="section"><li><a href="installingprogs.html"><strong aria-hidden="true">1.1.</strong> Installing programs</a></li><li><a href="services.html"><strong aria-hidden="true">1.2.</strong> Setting up services</a></li><li><a href="envvars.html"><strong aria-hidden="true">1.3.</strong> Setting environment variables</a></li><li><a href="fonts.html"><strong aria-hidden="true">1.4.</strong> Installing fonts</a></li><li><a href="options.html"><strong aria-hidden="true">1.5.</strong> NixOS configuration options</a></li></ol></li><li><a href="packages.html"><strong aria-hidden="true">2.</strong> Managing Nix Packages</a></li><li><ol class="section"><li><a href="channels.html" class="active"><strong aria-hidden="true">2.1.</strong> Nix channels</a></li><li><a href="garbage.html"><strong aria-hidden="true">2.2.</strong> Nix garbage collection</a></li><li><a href="packageoptions.html"><strong aria-hidden="true">2.3.</strong> Setting package options</a></li><li><a href="overriding.html"><strong aria-hidden="true">2.4.</strong> Overriding attributes [WIP]</a></li></ol></li><li><a href="containerschapter.html"><strong aria-hidden="true">3.</strong> Sandboxes &amp; Containers [WIP]</a></li><li><ol class="section"><li><a href="nixsandboxes.html"><strong aria-hidden="true">3.1.</strong> Nix shell sandboxes</a></li><li><a href="containers.html"><strong aria-hidden="true">3.2.</strong> Containers [WIP]</a></li></ol></li><li><a href="derivations.html"><strong aria-hidden="true">4.</strong> Making Nix packages [WIP]</a></li><li><ol class="section"><li><a href="buildingpackages.html"><strong aria-hidden="true">4.1.</strong> Building packages [WIP]</a></li></ol></li><li><a href="nixexpressions.html"><strong aria-hidden="true">5.</strong> Nix Expressions</a></li></ol>
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="affix"><a href="intro.html">Introduction</a></li><li class="affix"><a href="about.html">About</a></li><li><a href="gettingstarted.html"><strong aria-hidden="true">1.</strong> Getting Started</a></li><li><ol class="section"><li><a href="installingprogs.html"><strong aria-hidden="true">1.1.</strong> Installing programs</a></li><li><a href="services.html"><strong aria-hidden="true">1.2.</strong> Setting up services</a></li><li><a href="envvars.html"><strong aria-hidden="true">1.3.</strong> Setting environment variables</a></li><li><a href="fonts.html"><strong aria-hidden="true">1.4.</strong> Installing fonts</a></li><li><a href="options.html"><strong aria-hidden="true">1.5.</strong> NixOS configuration options</a></li></ol></li><li><a href="packages.html"><strong aria-hidden="true">2.</strong> Managing Nix Packages</a></li><li><ol class="section"><li><a href="channels.html" class="active"><strong aria-hidden="true">2.1.</strong> Nix channels</a></li><li><a href="garbage.html"><strong aria-hidden="true">2.2.</strong> Nix garbage collection</a></li><li><a href="packageoptions.html"><strong aria-hidden="true">2.3.</strong> Setting package options</a></li><li><a href="overriding.html"><strong aria-hidden="true">2.4.</strong> Overriding attributes [WIP]</a></li></ol></li><li><a href="containerschapter.html"><strong aria-hidden="true">3.</strong> Sandboxes &amp; Containers [WIP]</a></li><li><ol class="section"><li><a href="nixsandboxes.html"><strong aria-hidden="true">3.1.</strong> Nix shell sandboxes</a></li><li><a href="containers.html"><strong aria-hidden="true">3.2.</strong> Containers [WIP]</a></li></ol></li><li><a href="derivations.html"><strong aria-hidden="true">4.</strong> Making Nix packages [WIP]</a></li><li><ol class="section"><li><a href="buildingpackages.html"><strong aria-hidden="true">4.1.</strong> Building packages [WIP]</a></li></ol></li><li><a href="nixexpressions.html"><strong aria-hidden="true">5.</strong> Nix Expressions</a></li><li><a href="advancednix.html"><strong aria-hidden="true">6.</strong> Advanced Nix</a></li><li><ol class="section"><li><a href="modules.html"><strong aria-hidden="true">6.1.</strong> Modules</a></li><li><a href="overlays.html"><strong aria-hidden="true">6.2.</strong> Overlays</a></li></ol></li><li><a href="unsafe.html"><strong aria-hidden="true">7.</strong> Unsafe NixOS</a></li><li><a href="tipsandtricks.html"><strong aria-hidden="true">8.</strong> Tips &amp; Tricks</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
 
         <div id="page-wrapper" class="page-wrapper">
@@ -89,7 +97,7 @@
                                 <i class="fa fa-paint-brush"></i>
                             </button>
                             <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
-                                <li role="none"><button role="menuitem" class="theme" id="light">Light <span class="default">(default)</span></button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
                                 <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
                                 <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
                                 <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
@@ -102,12 +110,13 @@
                             
                         </div>
 
-                        <h1 class="menu-title">NixOS4Noobs</h1> 
+                        <h1 class="menu-title">NixOS4Noobs</h1>
 
                         <div class="right-buttons">
                             <a href="print.html" title="Print this book" aria-label="Print this book">
                                 <i id="print-button" class="fa fa-print"></i>
                             </a>
+                            
                         </div>
                     </div>
                 </div>
@@ -136,21 +145,21 @@
 
                 <div id="content" class="content">
                     <main>
-                        <a class="header" href="#nix-channels" id="nix-channels"><h1>Nix channels</h1></a>
+                        <h1><a class="header" href="#nix-channels" id="nix-channels">Nix channels</a></h1>
 <p>Nix channels are basically &quot;where the downloaded packages come from&quot;. By default, on NixOS, packages are downloaded from the <code>nixos</code> channel (Is that really a surprise?)</p>
 <p>In general, when it comes to channels, there are 3<sup class="footnote-reference"><a href="#1">1</a></sup> channels that are available:</p>
-<table><thead><tr><th> Channel </th><th> Example channels </th></tr></thead><tbody>
-<tr><td> Stable channels </td><td> <code>nixos-19.03</code> </td></tr>
-<tr><td> Unstable channels (bleeding-edge) </td><td> <code>nixos-unstable</code> </td></tr>
-<tr><td> Old channels </td><td> <code>nixos-18.03</code>, <code>nixos-17.09</code> </td></tr>
+<table><thead><tr><th>Channel</th><th>Example channels</th></tr></thead><tbody>
+<tr><td>Stable channels</td><td><code>nixos-19.03</code></td></tr>
+<tr><td>Unstable channels (bleeding-edge)</td><td><code>nixos-unstable</code></td></tr>
+<tr><td>Old channels</td><td><code>nixos-18.03</code>, <code>nixos-17.09</code></td></tr>
 </tbody></table>
-<a class="header" href="#using-different-channels-in-your-configuration" id="using-different-channels-in-your-configuration"><h2>Using different channels in your configuration</h2></a>
+<h2><a class="header" href="#using-different-channels-in-your-configuration" id="using-different-channels-in-your-configuration">Using different channels in your configuration</a></h2>
 <p>There are two major methods of using different channels in your <code>configuration.nix</code> file. Which one you choose is entirely up to you, each have their own perks and drawbacks.</p>
 <blockquote>
 <p><strong>Warning</strong></p>
 <p>There are multiple different &quot;defined&quot; NixOS channels out there. Some are named <code>nixos</code>, whereas others are named <code>nixpkgs</code>. <strong>Do not use nixpkgs channels on NixOS</strong>. The <code>nixos</code> channels have different tests to the <code>nixpkgs</code> channels and are designed for the operating system as a whole, unlike the <code>nixpkgs</code> channels.</p>
 </blockquote>
-<a class="header" href="#method-1-using-nix-channel" id="method-1-using-nix-channel"><h3>Method 1: Using <code>nix-channel</code></h3></a>
+<h3><a class="header" href="#method-1-using-nix-channel" id="method-1-using-nix-channel">Method 1: Using <code>nix-channel</code></a></h3>
 <p>The <code>nix-channel</code> command is designed to manage multiple nix channels on your system. It's easy to update channels to the latest versions and add or remove channels.</p>
 <ul>
 <li>
@@ -173,25 +182,25 @@
 <pre><code class="language-nix">{ config, pkgs, ... }:
 
 let
-    unstable = import &lt;unstable&gt; {};
+	unstable = import &lt;unstable&gt; {};
 in {
-    # The rest of your configuration here
+	# The rest of your configuration here
 
-    environment.systemPackages = with pkgs; [
-        # To use unstable packages, precede package names with unstable.
-        # as defined in the &quot;let ... in&quot; section above
-        unstable.hello
-    ];
+	environment.systemPackages = with pkgs; [
+		# To use unstable packages, precede package names with unstable.
+		# as defined in the &quot;let ... in&quot; section above
+		unstable.hello
+	];
 
 };
 </code></pre>
-<a class="header" href="#method-2-using-git-revisions" id="method-2-using-git-revisions"><h3>Method 2: Using git revisions</h3></a>
+<h3><a class="header" href="#method-2-using-git-revisions" id="method-2-using-git-revisions">Method 2: Using git revisions</a></h3>
 <p>This method gives you much more control over what specific version of Nixpkgs you want to use on your system, however it means that updating channels (if you choose to do so) will also have to be done manually.</p>
 <p>The only difference is that you require the following code structure:</p>
 <pre><code class="language-nix">import (builtins.fetchGit {
-    name = &quot;NAME&quot;;
-    url = https://github.com/nixos/nixpkgs/;
-    rev = &quot;REV&quot;;
+	name = &quot;NAME&quot;;
+	url = https://github.com/nixos/nixpkgs/;
+	rev = &quot;REV&quot;;
 }) {};
 </code></pre>
 <p>The <em>NAME</em> is some sort of descriptive name for your own benefit, and the <em>REV</em> refers to the Git commit hash of your choosing (This is pretty easy to find on GitHub, it's shown as a 7-character string on the <a href="https://github.com/NixOS/nixpkgs">Nixpkgs repository's commits</a> - clicking on the clipboard icon next to it copies the full hash to your clipboard)</p>
@@ -199,26 +208,26 @@ in {
 <pre><code class="language-nix">{ config, pkgs, ... }:
 
 let
-    myNixpkgs = import (builtins.fetchGit {
-        name = &quot;nixos-unstable-2018-09-12&quot;;
-        url = https://github.com/nixos/nixpkgs/;
-        rev = &quot;ca2ba44cab47767c8127d1c8633e2b581644eb8f&quot;;
-    }) {};
+	myNixpkgs = import (builtins.fetchGit {
+		name = &quot;nixos-unstable-2018-09-12&quot;;
+		url = https://github.com/nixos/nixpkgs/;
+		rev = &quot;ca2ba44cab47767c8127d1c8633e2b581644eb8f&quot;;
+	}) {};
 in {
-    # The rest of your configuration here
+	# The rest of your configuration here
 
-    environment.systemPackages = with pkgs; [
-        # Exactly the same as the above example
-        myNixpkgs.hello
-    ];
+	environment.systemPackages = with pkgs; [
+		# Exactly the same as the above example
+		myNixpkgs.hello
+	];
 };
 </code></pre>
 <p>Alternatively, you can easily change all packages declared in the system packages to use your chosen git revision by changing the packages that are brought into scope after the <code>with</code> keyword:</p>
 <pre><code class="language-nix">environment.systemPackages = with myNixpkgs; [
-    hello
+	hello
 ];
 </code></pre>
-<a class="header" href="#finding-information-about-current-nix-channels" id="finding-information-about-current-nix-channels"><h2>Finding information about current nix channels</h2></a>
+<h2><a class="header" href="#finding-information-about-current-nix-channels" id="finding-information-about-current-nix-channels">Finding information about current nix channels</a></h2>
 <p>The <a href="http://howoldis.herokuapp.com/">NixOS channel update website</a> provides insights on when the various Nix channels were last updated, including the link to the latest commit that was included for that update. It's the quickest and easiest way for you to browse through the repository to find whether a specific package has been updated or not.</p>
 <hr />
 <div class="footnote-definition" id="1"><sup class="footnote-definition-label">1</sup>
@@ -262,21 +271,6 @@ in {
 
         </div>
 
-        
-        <!-- Livereload script (if served using the cli tool) -->
-        <script type="text/javascript">
-            var socket = new WebSocket("ws://localhost:3001");
-            socket.onmessage = function (event) {
-                if (event.data === "reload") {
-                    socket.close();
-                    location.reload(true); // force reload from server (not from cache)
-                }
-            };
-
-            window.onbeforeunload = function() {
-                socket.close();
-            }
-        </script>
         
 
         

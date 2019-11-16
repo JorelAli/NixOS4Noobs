@@ -21,3 +21,8 @@
 - [Making Nix packages [WIP]](./derivations.md)
   - [Building packages [WIP]](./buildingpackages.md)
 - [Nix Expressions](./nixexpressions.md)
+- [Advanced Nix](./advancednix.md)
+  - [Modules](./modules.md)
+  - [Overlays](./overlays.md)
+- [Unsafe NixOS](./unsafe.md)
+- [Tips & Tricks](./tipsandtricks.md)

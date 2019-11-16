@@ -22,14 +22,12 @@ As with any programming language, there are the basic data types, which are as f
   If you want to use Nix variables inside your strings, you can do so using the `${}` notation, like this[^2]:
 
   ```nix
-  ​```
   someSet = rec {
       myVar = "hello";
       someString = "${myVar}, world!"
   }
-  ​```
   ```
-
+  
   [^2]: See the section below for recursive sets - since we reference `myVar` in the declaration of `someString`, the set needs to be declared as recursive.
 
 * **Integers & Floats** - Numerical values, such as `2` or `501.23`. Integer and floating point numbers are inferred. If using math with integers, integer division will be used by default.

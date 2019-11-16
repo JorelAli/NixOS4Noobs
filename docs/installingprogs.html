@@ -4,6 +4,8 @@
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
         <title>Installing programs - NixOS4Noobs</title>
+        
+
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -32,7 +34,10 @@
     </head>
     <body class="light">
         <!-- Provide site root to javascript -->
-        <script type="text/javascript">var path_to_root = "";</script>
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = "light";
+        </script>
 
         <!-- Work around some values being stored in localStorage wrapped in quotes -->
         <script type="text/javascript">
@@ -53,8 +58,8 @@
         <!-- Set the theme before any content is loaded, prevents flash -->
         <script type="text/javascript">
             var theme;
-            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { } 
-            if (theme === null || theme === undefined) { theme = 'light'; }
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
             document.body.className = theme;
             document.querySelector('html').className = theme + ' js';
         </script>
@@ -72,7 +77,10 @@
         </script>
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
-            <ol class="chapter"><li class="affix"><a href="intro.html">Introduction</a></li><li class="affix"><a href="about.html">About</a></li><li><a href="gettingstarted.html"><strong aria-hidden="true">1.</strong> Getting Started</a></li><li><ol class="section"><li><a href="installingprogs.html" class="active"><strong aria-hidden="true">1.1.</strong> Installing programs</a></li><li><a href="services.html"><strong aria-hidden="true">1.2.</strong> Setting up services</a></li><li><a href="envvars.html"><strong aria-hidden="true">1.3.</strong> Setting environment variables</a></li><li><a href="fonts.html"><strong aria-hidden="true">1.4.</strong> Installing fonts</a></li><li><a href="options.html"><strong aria-hidden="true">1.5.</strong> NixOS configuration options</a></li></ol></li><li><a href="packages.html"><strong aria-hidden="true">2.</strong> Managing Nix Packages</a></li><li><ol class="section"><li><a href="channels.html"><strong aria-hidden="true">2.1.</strong> Nix channels</a></li><li><a href="garbage.html"><strong aria-hidden="true">2.2.</strong> Nix garbage collection</a></li><li><a href="packageoptions.html"><strong aria-hidden="true">2.3.</strong> Setting package options</a></li><li><a href="overriding.html"><strong aria-hidden="true">2.4.</strong> Overriding attributes [WIP]</a></li></ol></li><li><a href="containerschapter.html"><strong aria-hidden="true">3.</strong> Sandboxes &amp; Containers [WIP]</a></li><li><ol class="section"><li><a href="nixsandboxes.html"><strong aria-hidden="true">3.1.</strong> Nix shell sandboxes</a></li><li><a href="containers.html"><strong aria-hidden="true">3.2.</strong> Containers [WIP]</a></li></ol></li><li><a href="derivations.html"><strong aria-hidden="true">4.</strong> Making Nix packages [WIP]</a></li><li><ol class="section"><li><a href="buildingpackages.html"><strong aria-hidden="true">4.1.</strong> Building packages [WIP]</a></li></ol></li><li><a href="nixexpressions.html"><strong aria-hidden="true">5.</strong> Nix Expressions</a></li></ol>
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="affix"><a href="intro.html">Introduction</a></li><li class="affix"><a href="about.html">About</a></li><li><a href="gettingstarted.html"><strong aria-hidden="true">1.</strong> Getting Started</a></li><li><ol class="section"><li><a href="installingprogs.html" class="active"><strong aria-hidden="true">1.1.</strong> Installing programs</a></li><li><a href="services.html"><strong aria-hidden="true">1.2.</strong> Setting up services</a></li><li><a href="envvars.html"><strong aria-hidden="true">1.3.</strong> Setting environment variables</a></li><li><a href="fonts.html"><strong aria-hidden="true">1.4.</strong> Installing fonts</a></li><li><a href="options.html"><strong aria-hidden="true">1.5.</strong> NixOS configuration options</a></li></ol></li><li><a href="packages.html"><strong aria-hidden="true">2.</strong> Managing Nix Packages</a></li><li><ol class="section"><li><a href="channels.html"><strong aria-hidden="true">2.1.</strong> Nix channels</a></li><li><a href="garbage.html"><strong aria-hidden="true">2.2.</strong> Nix garbage collection</a></li><li><a href="packageoptions.html"><strong aria-hidden="true">2.3.</strong> Setting package options</a></li><li><a href="overriding.html"><strong aria-hidden="true">2.4.</strong> Overriding attributes [WIP]</a></li></ol></li><li><a href="containerschapter.html"><strong aria-hidden="true">3.</strong> Sandboxes &amp; Containers [WIP]</a></li><li><ol class="section"><li><a href="nixsandboxes.html"><strong aria-hidden="true">3.1.</strong> Nix shell sandboxes</a></li><li><a href="containers.html"><strong aria-hidden="true">3.2.</strong> Containers [WIP]</a></li></ol></li><li><a href="derivations.html"><strong aria-hidden="true">4.</strong> Making Nix packages [WIP]</a></li><li><ol class="section"><li><a href="buildingpackages.html"><strong aria-hidden="true">4.1.</strong> Building packages [WIP]</a></li></ol></li><li><a href="nixexpressions.html"><strong aria-hidden="true">5.</strong> Nix Expressions</a></li><li><a href="advancednix.html"><strong aria-hidden="true">6.</strong> Advanced Nix</a></li><li><ol class="section"><li><a href="modules.html"><strong aria-hidden="true">6.1.</strong> Modules</a></li><li><a href="overlays.html"><strong aria-hidden="true">6.2.</strong> Overlays</a></li></ol></li><li><a href="unsafe.html"><strong aria-hidden="true">7.</strong> Unsafe NixOS</a></li><li><a href="tipsandtricks.html"><strong aria-hidden="true">8.</strong> Tips &amp; Tricks</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
 
         <div id="page-wrapper" class="page-wrapper">
@@ -89,7 +97,7 @@
                                 <i class="fa fa-paint-brush"></i>
                             </button>
                             <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
-                                <li role="none"><button role="menuitem" class="theme" id="light">Light <span class="default">(default)</span></button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
                                 <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
                                 <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
                                 <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
@@ -102,12 +110,13 @@
                             
                         </div>
 
-                        <h1 class="menu-title">NixOS4Noobs</h1> 
+                        <h1 class="menu-title">NixOS4Noobs</h1>
 
                         <div class="right-buttons">
                             <a href="print.html" title="Print this book" aria-label="Print this book">
                                 <i id="print-button" class="fa fa-print"></i>
                             </a>
+                            
                         </div>
                     </div>
                 </div>
@@ -136,12 +145,12 @@
 
                 <div id="content" class="content">
                     <main>
-                        <a class="header" href="#installing-programs" id="installing-programs"><h1>Installing programs</h1></a>
+                        <h1><a class="header" href="#installing-programs" id="installing-programs">Installing programs</a></h1>
 <p>There are many different ways of installing programs on NixOS. In this section, we will cover two methods of installing programs that use the <code>configuration.nix</code> file.</p>
-<a class="header" href="#method-1-installing-programs-using-the-programs-attribute" id="method-1-installing-programs-using-the-programs-attribute"><h2>Method 1: Installing programs using the <code>programs</code> attribute</h2></a>
+<h2><a class="header" href="#method-1-installing-programs-using-the-programs-attribute" id="method-1-installing-programs-using-the-programs-attribute">Method 1: Installing programs using the <code>programs</code> attribute</a></h2>
 <p><em>Certain</em> programs can be installed by using the following structure in your <code>configuration.nix</code> file:</p>
 <pre><code class="language-nix">programs = {
-    # Programs go here
+	# Programs go here
 };
 </code></pre>
 <p>Only a few programs can be installed this way - these programs can be found <a href="https://nixos.org/nixos/options.html#programs.">here</a> by using the NixOS options search feature, or by using the nix repl:</p>
@@ -153,22 +162,22 @@ nix-repl&gt; builtins.attrNames config.programs
 <p>Using this method for installing programs is desirable if possible compared to method 2, as this normally sets the required environment variables for the program to function properly. In addition, various configuration options are available <em>(e.g. adding shell aliases to the fish shell)</em></p>
 <p>Of course, this is only an option if the specific program you want exists in the programs attribute.</p>
 </blockquote>
-<a class="header" href="#example-installing-and-setting-up-the-fish-shell" id="example-installing-and-setting-up-the-fish-shell"><h3>Example: Installing and setting up the <code>fish</code> shell</h3></a>
+<h3><a class="header" href="#example-installing-and-setting-up-the-fish-shell" id="example-installing-and-setting-up-the-fish-shell">Example: Installing and setting up the <code>fish</code> shell</a></h3>
 <p>In this example, we enable the program <code>chromium</code>, as well as the <code>fish</code> command. We also add an alias to the <code>du</code> command called <code>dirsize</code> which can be used within the fish shell:</p>
 <pre><code class="language-nix">programs = {
 
-    chromium.enable = true;
+	chromium.enable = true;
 
-    fish = {
-        enable = true;
-        shellAliases = [
-            dirsize = &quot;du -sh&quot;
-        ];
-    };
+	fish = {
+		enable = true;
+		shellAliases = [
+			dirsize = &quot;du -sh&quot;
+		];
+	};
 
 };
 </code></pre>
-<a class="header" href="#method-2-installing-programs-using-the-system-packages" id="method-2-installing-programs-using-the-system-packages"><h2>Method 2: Installing programs using the system packages</h2></a>
+<h2><a class="header" href="#method-2-installing-programs-using-the-system-packages" id="method-2-installing-programs-using-the-system-packages">Method 2: Installing programs using the system packages</a></h2>
 <blockquote>
 <p><strong>Unfree packages</strong></p>
 <p>Certain packages are known as <code>unfree</code>, which means that their license states that they cannot be redistributed (for example, Google Chrome). In order to install <code>unfree</code> packages, you need to add the following to your <code>configuration.nix</code> file:</p>
@@ -179,11 +188,11 @@ nix-repl&gt; builtins.attrNames config.programs
 </blockquote>
 <p>This method of installing programs is the primary method of installing programs in NixOS. It basically uses the entire Nixpkgs suite of packages and allows you to choose the packages you want. The general structure in your <code>configuration.nix</code> file will look something like this:</p>
 <pre><code class="language-nix">environment.systemPackages = with pkgs; [
-    # Packages go here
+	# Packages go here
 ];
 </code></pre>
 <p>Finding packages is a little bit more tricky compared to finding programs in method 1. The following strategies are as follows:</p>
-<a class="header" href="#using-the-nix-search-command" id="using-the-nix-search-command"><h3>Using the <code>nix search</code> command</h3></a>
+<h3><a class="header" href="#using-the-nix-search-command" id="using-the-nix-search-command">Using the <code>nix search</code> command</a></h3>
 <p>Using <code>nix search</code> is the easiest way to find packages for your current version of NixOS. Simply type <code>nix search &lt;packageName&gt;</code> to search for a specific package</p>
 <pre><code>$ nix search google chrome
 * nixpkgs.google-chrome (google-chrome)
@@ -201,15 +210,15 @@ nix-repl&gt; builtins.attrNames config.programs
 <p>To use a package from the <code>nix search</code> command, <strong>you must include the package name after <code>nixpkgs</code>, not the name in brackets</strong>. This is due to various package 'flavours' being packaged under a single package name.</p>
 <p>For example:</p>
 <pre><code class="language-nix">environment.systemPackages = with pkgs; [
-    google-chrome
-    gnome3.gnome-mahjongg
+	google-chrome
+	gnome3.gnome-mahjongg
 ];
 </code></pre>
-<a class="header" href="#using-the-online-package-search" id="using-the-online-package-search"><h3>Using the online package search</h3></a>
+<h3><a class="header" href="#using-the-online-package-search" id="using-the-online-package-search">Using the online package search</a></h3>
 <p>Using the <a href="https://nixos.org/nixos/packages.html#">NixOS package search</a> website, it's easy to find packages. The name required in the system packages from this website is the <strong>Attribute name</strong> field.</p>
 <p><img src="./vitetris.png" alt="vitetris" /></p>
 <pre><code class="language-nix">environment.systemPackages = with pkgs; [
-    vitetris
+	vitetris
 ];
 </code></pre>
 
@@ -250,21 +259,6 @@ nix-repl&gt; builtins.attrNames config.programs
 
         </div>
 
-        
-        <!-- Livereload script (if served using the cli tool) -->
-        <script type="text/javascript">
-            var socket = new WebSocket("ws://localhost:3001");
-            socket.onmessage = function (event) {
-                if (event.data === "reload") {
-                    socket.close();
-                    location.reload(true); // force reload from server (not from cache)
-                }
-            };
-
-            window.onbeforeunload = function() {
-                socket.close();
-            }
-        </script>
         
 
         
