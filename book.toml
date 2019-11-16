@@ -3,3 +3,6 @@ authors = ["Jorel Ali"]
 multilingual = false
 src = "src"
 title = "NixOS4Noobs"
+
+[build]
+build-dir = "docs"

@@ -1,3 +1,0 @@
-#!/bin/sh
-mkdir ./docs
-cp -r ./book ./docs

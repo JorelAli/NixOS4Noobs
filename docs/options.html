@@ -4,8 +4,6 @@
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
         <title>NixOS configuration options - NixOS4Noobs</title>
-        
-
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -34,10 +32,7 @@
     </head>
     <body class="light">
         <!-- Provide site root to javascript -->
-        <script type="text/javascript">
-            var path_to_root = "";
-            var default_theme = "light";
-        </script>
+        <script type="text/javascript">var path_to_root = "";</script>
 
         <!-- Work around some values being stored in localStorage wrapped in quotes -->
         <script type="text/javascript">
@@ -58,8 +53,8 @@
         <!-- Set the theme before any content is loaded, prevents flash -->
         <script type="text/javascript">
             var theme;
-            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
-            if (theme === null || theme === undefined) { theme = default_theme; }
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { } 
+            if (theme === null || theme === undefined) { theme = 'light'; }
             document.body.className = theme;
             document.querySelector('html').className = theme + ' js';
         </script>
@@ -77,10 +72,7 @@
         </script>
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
-            <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="affix"><a href="intro.html">Introduction</a></li><li class="affix"><a href="about.html">About</a></li><li><a href="gettingstarted.html"><strong aria-hidden="true">1.</strong> Getting Started</a></li><li><ol class="section"><li><a href="installingprogs.html"><strong aria-hidden="true">1.1.</strong> Installing programs</a></li><li><a href="services.html"><strong aria-hidden="true">1.2.</strong> Setting up services</a></li><li><a href="envvars.html"><strong aria-hidden="true">1.3.</strong> Setting environment variables</a></li><li><a href="fonts.html"><strong aria-hidden="true">1.4.</strong> Installing fonts</a></li><li><a href="options.html" class="active"><strong aria-hidden="true">1.5.</strong> NixOS configuration options</a></li></ol></li><li><a href="packages.html"><strong aria-hidden="true">2.</strong> Managing Nix Packages</a></li><li><ol class="section"><li><a href="channels.html"><strong aria-hidden="true">2.1.</strong> Nix channels</a></li><li><a href="garbage.html"><strong aria-hidden="true">2.2.</strong> Nix garbage collection</a></li><li><a href="packageoptions.html"><strong aria-hidden="true">2.3.</strong> Setting package options</a></li><li><a href="overriding.html"><strong aria-hidden="true">2.4.</strong> Overriding attributes [WIP]</a></li></ol></li><li><a href="containerschapter.html"><strong aria-hidden="true">3.</strong> Sandboxes &amp; Containers [WIP]</a></li><li><ol class="section"><li><a href="nixsandboxes.html"><strong aria-hidden="true">3.1.</strong> Nix shell sandboxes</a></li><li><a href="containers.html"><strong aria-hidden="true">3.2.</strong> Containers [WIP]</a></li></ol></li><li><a href="derivations.html"><strong aria-hidden="true">4.</strong> Making Nix packages [WIP]</a></li><li><ol class="section"><li><a href="buildingpackages.html"><strong aria-hidden="true">4.1.</strong> Building packages [WIP]</a></li></ol></li><li><a href="nixexpressions.html"><strong aria-hidden="true">5.</strong> Nix Expressions</a></li><li><a href="advancednix.html"><strong aria-hidden="true">6.</strong> Advanced Nix</a></li><li><ol class="section"><li><a href="modules.html"><strong aria-hidden="true">6.1.</strong> Modules</a></li><li><a href="overlays.html"><strong aria-hidden="true">6.2.</strong> Overlays</a></li></ol></li><li><a href="unsafe.html"><strong aria-hidden="true">7.</strong> Unsafe NixOS</a></li><li><a href="tipsandtricks.html"><strong aria-hidden="true">8.</strong> Tips &amp; Tricks</a></li></ol>
-            </div>
-            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+            <ol class="chapter"><li class="affix"><a href="intro.html">Introduction</a></li><li class="affix"><a href="about.html">About</a></li><li><a href="gettingstarted.html"><strong aria-hidden="true">1.</strong> Getting Started</a></li><li><ol class="section"><li><a href="installingprogs.html"><strong aria-hidden="true">1.1.</strong> Installing programs</a></li><li><a href="services.html"><strong aria-hidden="true">1.2.</strong> Setting up services</a></li><li><a href="envvars.html"><strong aria-hidden="true">1.3.</strong> Setting environment variables</a></li><li><a href="fonts.html"><strong aria-hidden="true">1.4.</strong> Installing fonts</a></li><li><a href="options.html" class="active"><strong aria-hidden="true">1.5.</strong> NixOS configuration options</a></li></ol></li><li><a href="packages.html"><strong aria-hidden="true">2.</strong> Managing Nix Packages</a></li><li><ol class="section"><li><a href="channels.html"><strong aria-hidden="true">2.1.</strong> Nix channels</a></li><li><a href="garbage.html"><strong aria-hidden="true">2.2.</strong> Nix garbage collection</a></li><li><a href="packageoptions.html"><strong aria-hidden="true">2.3.</strong> Setting package options</a></li><li><a href="overriding.html"><strong aria-hidden="true">2.4.</strong> Overriding attributes [WIP]</a></li></ol></li><li><a href="containerschapter.html"><strong aria-hidden="true">3.</strong> Sandboxes &amp; Containers [WIP]</a></li><li><ol class="section"><li><a href="nixsandboxes.html"><strong aria-hidden="true">3.1.</strong> Nix shell sandboxes</a></li><li><a href="containers.html"><strong aria-hidden="true">3.2.</strong> Containers [WIP]</a></li></ol></li><li><a href="derivations.html"><strong aria-hidden="true">4.</strong> Making Nix packages [WIP]</a></li><li><ol class="section"><li><a href="buildingpackages.html"><strong aria-hidden="true">4.1.</strong> Building packages [WIP]</a></li></ol></li><li><a href="nixexpressions.html"><strong aria-hidden="true">5.</strong> Nix Expressions</a></li><li><a href="advancednix.html"><strong aria-hidden="true">6.</strong> Advanced Nix</a></li><li><ol class="section"><li><a href="modules.html"><strong aria-hidden="true">6.1.</strong> Modules</a></li><li><a href="overlays.html"><strong aria-hidden="true">6.2.</strong> Overlays</a></li><li><a href="nixshell.html"><strong aria-hidden="true">6.3.</strong> Nix Shell</a></li></ol></li><li><a href="unsafe.html"><strong aria-hidden="true">7.</strong> Unsafe NixOS</a></li><li><a href="tipsandtricks.html"><strong aria-hidden="true">8.</strong> Tips &amp; Tricks</a></li></ol>
         </nav>
 
         <div id="page-wrapper" class="page-wrapper">
@@ -97,7 +89,7 @@
                                 <i class="fa fa-paint-brush"></i>
                             </button>
                             <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
-                                <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="light">Light <span class="default">(default)</span></button></li>
                                 <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
                                 <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
                                 <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
@@ -110,13 +102,12 @@
                             
                         </div>
 
-                        <h1 class="menu-title">NixOS4Noobs</h1>
+                        <h1 class="menu-title">NixOS4Noobs</h1> 
 
                         <div class="right-buttons">
                             <a href="print.html" title="Print this book" aria-label="Print this book">
                                 <i id="print-button" class="fa fa-print"></i>
                             </a>
-                            
                         </div>
                     </div>
                 </div>
@@ -145,7 +136,7 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1><a class="header" href="#nixos-configuration-options" id="nixos-configuration-options">NixOS configuration options</a></h1>
+                        <a class="header" href="#nixos-configuration-options" id="nixos-configuration-options"><h1>NixOS configuration options</h1></a>
 <p>The NixOS configuration file also contains a section for other options to manage the system. This includes, but not limited to:</p>
 <ul>
 <li>Configuring the hardware setup</li>
@@ -155,14 +146,14 @@
 <li>Configuring the boot setup</li>
 </ul>
 <p>Searching for these options is a little more tricky, but here are various ways to go about doing so:</p>
-<h2><a class="header" href="#method-1-using-the-online-options-search" id="method-1-using-the-online-options-search">Method 1: Using the online options search</a></h2>
+<a class="header" href="#method-1-using-the-online-options-search" id="method-1-using-the-online-options-search"><h2>Method 1: Using the online options search</h2></a>
 <blockquote>
 <p>This method is best for finding new options and finding examples of alternative values for options</p>
 </blockquote>
 <p>The <a href="https://nixos.org/nixos/options.html#">Search NixOS options</a> website is the best way to search for options. It includes descriptions of each option, along with its default value and sometimes an example of alternate values. Using options is as simple as declaring the <strong>Option name</strong> in your <code>configuration.nix</code> file and assigning a value to it:</p>
 <pre><code class="language-nix">hardware.bluetooth.enable = true;
 </code></pre>
-<h2><a class="header" href="#method-2-using-the-nixos-option-command" id="method-2-using-the-nixos-option-command">Method 2: Using the <code>nixos-option</code> command</a></h2>
+<a class="header" href="#method-2-using-the-nixos-option-command" id="method-2-using-the-nixos-option-command"><h2>Method 2: Using the <code>nixos-option</code> command</h2></a>
 <blockquote>
 <p>This method is best for finding where your current system's configuration settings are declared</p>
 </blockquote>
@@ -208,7 +199,7 @@ Declared by:
 Defined by:
 &quot;/etc/nixos/configuration.&quot;
 </code></pre>
-<h2><a class="header" href="#method-3-using-the-nix-repl" id="method-3-using-the-nix-repl">Method 3: Using the Nix repl</a></h2>
+<a class="header" href="#method-3-using-the-nix-repl" id="method-3-using-the-nix-repl"><h2>Method 3: Using the Nix repl</h2></a>
 <blockquote>
 <p>This method is best for finding the values of your current system's configuration</p>
 </blockquote>
@@ -228,9 +219,9 @@ config.assertions       config.jobs             config.services
 nix-repl&gt; config.hardware.bluetooth.enable
 true
 </code></pre>
-<h2><a class="header" href="#method-4-using-man-configurationnix" id="method-4-using-man-configurationnix">Method 4: Using <code>man configuration.nix</code></a></h2>
+<a class="header" href="#method-4-using-man-configurationnix" id="method-4-using-man-configurationnix"><h2>Method 4: Using <code>man configuration.nix</code></h2></a>
 <p>The <code>man configuration.nix</code> command displays all options that is available for the <code>configuration.nix</code> file. It's basically the same as Method 1, except searching for certain options is a little bit more tricky and technical. Using the <code>/</code> key, it is possible to search the man page for a specific option.</p>
-<h2><a class="header" href="#method-5-using-other-peoples-configurationnix-file" id="method-5-using-other-peoples-configurationnix-file">Method 5: Using other people's <code>configuration.nix</code> file</a></h2>
+<a class="header" href="#method-5-using-other-peoples-configurationnix-file" id="method-5-using-other-peoples-configurationnix-file"><h2>Method 5: Using other people's <code>configuration.nix</code> file</h2></a>
 <p>One of the best ways of figuring out how to use various NixOS configuration options is to look at other NixOS user's configuration files. <a href="https://search.tx0.co/?q=&amp;i=nope&amp;files=configuration.nix&amp;repos=">This website</a> is dedicated to a set of repositories of NixOS users and can be used to search for certain attributes in their specific configuration files by using the <em>File Path</em> setting in the Advanced section below the main textbox.</p>
 <p>This also includes links to their repositories to where the code is declared. In addition, <a href="https://github.com/JorelAli/nixos/blob/master/configuration.nix">JorelAli's configuration</a> is a pretty good resource that is well documented.</p>
 

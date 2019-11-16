@@ -4,8 +4,6 @@
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
         <title>Nix Expressions - NixOS4Noobs</title>
-        
-
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -34,10 +32,7 @@
     </head>
     <body class="light">
         <!-- Provide site root to javascript -->
-        <script type="text/javascript">
-            var path_to_root = "";
-            var default_theme = "light";
-        </script>
+        <script type="text/javascript">var path_to_root = "";</script>
 
         <!-- Work around some values being stored in localStorage wrapped in quotes -->
         <script type="text/javascript">
@@ -58,8 +53,8 @@
         <!-- Set the theme before any content is loaded, prevents flash -->
         <script type="text/javascript">
             var theme;
-            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
-            if (theme === null || theme === undefined) { theme = default_theme; }
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { } 
+            if (theme === null || theme === undefined) { theme = 'light'; }
             document.body.className = theme;
             document.querySelector('html').className = theme + ' js';
         </script>
@@ -77,10 +72,7 @@
         </script>
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
-            <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="affix"><a href="intro.html">Introduction</a></li><li class="affix"><a href="about.html">About</a></li><li><a href="gettingstarted.html"><strong aria-hidden="true">1.</strong> Getting Started</a></li><li><ol class="section"><li><a href="installingprogs.html"><strong aria-hidden="true">1.1.</strong> Installing programs</a></li><li><a href="services.html"><strong aria-hidden="true">1.2.</strong> Setting up services</a></li><li><a href="envvars.html"><strong aria-hidden="true">1.3.</strong> Setting environment variables</a></li><li><a href="fonts.html"><strong aria-hidden="true">1.4.</strong> Installing fonts</a></li><li><a href="options.html"><strong aria-hidden="true">1.5.</strong> NixOS configuration options</a></li></ol></li><li><a href="packages.html"><strong aria-hidden="true">2.</strong> Managing Nix Packages</a></li><li><ol class="section"><li><a href="channels.html"><strong aria-hidden="true">2.1.</strong> Nix channels</a></li><li><a href="garbage.html"><strong aria-hidden="true">2.2.</strong> Nix garbage collection</a></li><li><a href="packageoptions.html"><strong aria-hidden="true">2.3.</strong> Setting package options</a></li><li><a href="overriding.html"><strong aria-hidden="true">2.4.</strong> Overriding attributes [WIP]</a></li></ol></li><li><a href="containerschapter.html"><strong aria-hidden="true">3.</strong> Sandboxes &amp; Containers [WIP]</a></li><li><ol class="section"><li><a href="nixsandboxes.html"><strong aria-hidden="true">3.1.</strong> Nix shell sandboxes</a></li><li><a href="containers.html"><strong aria-hidden="true">3.2.</strong> Containers [WIP]</a></li></ol></li><li><a href="derivations.html"><strong aria-hidden="true">4.</strong> Making Nix packages [WIP]</a></li><li><ol class="section"><li><a href="buildingpackages.html"><strong aria-hidden="true">4.1.</strong> Building packages [WIP]</a></li></ol></li><li><a href="nixexpressions.html" class="active"><strong aria-hidden="true">5.</strong> Nix Expressions</a></li><li><a href="advancednix.html"><strong aria-hidden="true">6.</strong> Advanced Nix</a></li><li><ol class="section"><li><a href="modules.html"><strong aria-hidden="true">6.1.</strong> Modules</a></li><li><a href="overlays.html"><strong aria-hidden="true">6.2.</strong> Overlays</a></li></ol></li><li><a href="unsafe.html"><strong aria-hidden="true">7.</strong> Unsafe NixOS</a></li><li><a href="tipsandtricks.html"><strong aria-hidden="true">8.</strong> Tips &amp; Tricks</a></li></ol>
-            </div>
-            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+            <ol class="chapter"><li class="affix"><a href="intro.html">Introduction</a></li><li class="affix"><a href="about.html">About</a></li><li><a href="gettingstarted.html"><strong aria-hidden="true">1.</strong> Getting Started</a></li><li><ol class="section"><li><a href="installingprogs.html"><strong aria-hidden="true">1.1.</strong> Installing programs</a></li><li><a href="services.html"><strong aria-hidden="true">1.2.</strong> Setting up services</a></li><li><a href="envvars.html"><strong aria-hidden="true">1.3.</strong> Setting environment variables</a></li><li><a href="fonts.html"><strong aria-hidden="true">1.4.</strong> Installing fonts</a></li><li><a href="options.html"><strong aria-hidden="true">1.5.</strong> NixOS configuration options</a></li></ol></li><li><a href="packages.html"><strong aria-hidden="true">2.</strong> Managing Nix Packages</a></li><li><ol class="section"><li><a href="channels.html"><strong aria-hidden="true">2.1.</strong> Nix channels</a></li><li><a href="garbage.html"><strong aria-hidden="true">2.2.</strong> Nix garbage collection</a></li><li><a href="packageoptions.html"><strong aria-hidden="true">2.3.</strong> Setting package options</a></li><li><a href="overriding.html"><strong aria-hidden="true">2.4.</strong> Overriding attributes [WIP]</a></li></ol></li><li><a href="containerschapter.html"><strong aria-hidden="true">3.</strong> Sandboxes &amp; Containers [WIP]</a></li><li><ol class="section"><li><a href="nixsandboxes.html"><strong aria-hidden="true">3.1.</strong> Nix shell sandboxes</a></li><li><a href="containers.html"><strong aria-hidden="true">3.2.</strong> Containers [WIP]</a></li></ol></li><li><a href="derivations.html"><strong aria-hidden="true">4.</strong> Making Nix packages [WIP]</a></li><li><ol class="section"><li><a href="buildingpackages.html"><strong aria-hidden="true">4.1.</strong> Building packages [WIP]</a></li></ol></li><li><a href="nixexpressions.html" class="active"><strong aria-hidden="true">5.</strong> Nix Expressions</a></li><li><a href="advancednix.html"><strong aria-hidden="true">6.</strong> Advanced Nix</a></li><li><ol class="section"><li><a href="modules.html"><strong aria-hidden="true">6.1.</strong> Modules</a></li><li><a href="overlays.html"><strong aria-hidden="true">6.2.</strong> Overlays</a></li><li><a href="nixshell.html"><strong aria-hidden="true">6.3.</strong> Nix Shell</a></li></ol></li><li><a href="unsafe.html"><strong aria-hidden="true">7.</strong> Unsafe NixOS</a></li><li><a href="tipsandtricks.html"><strong aria-hidden="true">8.</strong> Tips &amp; Tricks</a></li></ol>
         </nav>
 
         <div id="page-wrapper" class="page-wrapper">
@@ -97,7 +89,7 @@
                                 <i class="fa fa-paint-brush"></i>
                             </button>
                             <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
-                                <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="light">Light <span class="default">(default)</span></button></li>
                                 <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
                                 <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
                                 <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
@@ -110,13 +102,12 @@
                             
                         </div>
 
-                        <h1 class="menu-title">NixOS4Noobs</h1>
+                        <h1 class="menu-title">NixOS4Noobs</h1> 
 
                         <div class="right-buttons">
                             <a href="print.html" title="Print this book" aria-label="Print this book">
                                 <i id="print-button" class="fa fa-print"></i>
                             </a>
-                            
                         </div>
                     </div>
                 </div>
@@ -145,20 +136,20 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1><a class="header" href="#nix-expressions" id="nix-expressions">Nix Expressions</a></h1>
+                        <a class="header" href="#nix-expressions" id="nix-expressions"><h1>Nix Expressions</h1></a>
 <p>The <code>configuration.nix</code> file is written as a <em>Nix Expression</em>, which is basically the &quot;programming language&quot; that Nix uses. In this chapter, we will cover the basics<sup class="footnote-reference"><a href="#1">1</a></sup> of writing Nix expressions, specifically for the NixOS configuration.</p>
 <div class="footnote-definition" id="1"><sup class="footnote-definition-label">1</sup>
 <p>In particular, we will cover the things that you're likely to discover in the <code>configuration.nix</code> file. We will not cover <em>all</em> of the technicalities (e.g. function definitions), but we will cover enough to get you through the configuration.</p>
 </div>
 <hr />
-<h2><a class="header" href="#basic-data-types" id="basic-data-types">Basic data types</a></h2>
+<a class="header" href="#basic-data-types" id="basic-data-types"><h2>Basic data types</h2></a>
 <p>As with any programming language, there are the basic data types, which are as follows:</p>
 <ul>
 <li>
 <p><strong>Strings</strong> - Text values which are encased in quotes <code>&quot;hello&quot;</code>, or two single quotes for multi-line strings:</p>
 <pre><code class="language-nix">''
-	This is on line 1
-	This is another line
+  This is on line 1
+  This is another line
 ''
 </code></pre>
 <p>If you want to use Nix variables inside your strings, you can do so using the <code>${}</code> notation, like this<sup class="footnote-reference"><a href="#2">2</a></sup>:</p>
@@ -184,13 +175,13 @@
 <p><strong>Lists &amp; Sets</strong> - These are explained in more detail below</p>
 </li>
 </ul>
-<h2><a class="header" href="#lists" id="lists">Lists</a></h2>
+<a class="header" href="#lists" id="lists"><h2>Lists</h2></a>
 <p>In Nix expressions, <strong>lists are declared using square brackets</strong>, and use a <strong>space to separate each element</strong>.</p>
-<h3><a class="header" href="#example-system-packages" id="example-system-packages">Example: System packages</a></h3>
+<a class="header" href="#example-system-packages" id="example-system-packages"><h3>Example: System packages</h3></a>
 <p>The system packages section of the configuration file is represented as a list:</p>
 <pre><code class="language-nix">environment.systemPackages = [
-	hello
-	chromium
+    hello
+    chromium
 ];
 </code></pre>
 <p>It can also be written like this (Typically a space is put after the <code>[</code> and before the <code>]</code>, but this is optional):</p>
@@ -198,55 +189,55 @@
 </code></pre>
 <p>Complex elements which would involve spaces require brackets to &quot;contain&quot; them:</p>
 <pre><code class="language-nix">environment.systemPackages = [
-	hello
+    hello
     (import ./someLocalPackage.nix {})
-	chromium
+    chromium
 ];
 </code></pre>
-<h2><a class="header" href="#sets-attribute-sets" id="sets-attribute-sets">Sets (Attribute sets)</a></h2>
+<a class="header" href="#sets-attribute-sets" id="sets-attribute-sets"><h2>Sets (Attribute sets)</h2></a>
 <p>Sets are similar to tables with key-value pairs. They consist of elements declared by some key, and assigned a value which can be any type. <strong>Sets are declared using curly brackets</strong>, and a <strong>semicolon is used to separate each key-value pair</strong>. Sets are polymorphic (They can have multiple types for <em>values</em>, not for keys).</p>
 <pre><code class="language-nix">mySet = {
-	name = &quot;Bob&quot;;
-	otherName = &quot;Jim&quot;;
-	aNumber = 2;
-	isItWednesday = false;
+    name = &quot;Bob&quot;;
+    otherName = &quot;Jim&quot;;
+    aNumber = 2;
+    isItWednesday = false;
 }
 </code></pre>
-<h3><a class="header" href="#example-system-programs" id="example-system-programs">Example: System programs</a></h3>
+<a class="header" href="#example-system-programs" id="example-system-programs"><h3>Example: System programs</h3></a>
 <p>Sets are used to declare programs for the system using the <code>programs</code> key:</p>
 <pre><code class="language-nix">programs = {
-	adb.enable = true;
-	bash.enableCompletion = true;
-	ssh.forwardX11 = true;
+    adb.enable = true;
+    bash.enableCompletion = true;
+    ssh.forwardX11 = true;
 };
 </code></pre>
-<h3><a class="header" href="#sets-inside-sets" id="sets-inside-sets">Sets inside sets</a></h3>
+<a class="header" href="#sets-inside-sets" id="sets-inside-sets"><h3>Sets inside sets</h3></a>
 <p>Because sets contain elements of keys and values, where values can be of any type, there's nothing stopping you from declaring a set with an element which is also a set.</p>
 <pre><code class="language-nix">mySet = {
-	myKey = {
-		someValueInInnerSet = 10;
-	};
+    myKey = {
+        someValueInInnerSet = 10;
+    };
 }
 </code></pre>
 <p>This can get tedious and overcomplicated, so we can simplify this using the dot notation:</p>
 <pre><code class="language-nix">mySet.myKey = {
-	someValueInInnerSet = 10;
+    someValueInInnerSet = 10;
 }
 </code></pre>
 <p>Or even simpler:</p>
 <pre><code class="language-nix">mySet.myKey.someValueInInnerSet = 10;
 </code></pre>
-<h4><a class="header" href="#example-enabling-sound-in-the-system-configuration" id="example-enabling-sound-in-the-system-configuration">Example: Enabling sound in the system configuration</a></h4>
+<a class="header" href="#example-enabling-sound-in-the-system-configuration" id="example-enabling-sound-in-the-system-configuration"><h4>Example: Enabling sound in the system configuration</h4></a>
 <p>In most configurations, enabling sound is done using the following code:</p>
 <pre><code class="language-nix">sound.enable = true;
 </code></pre>
 <p>This can be written as:</p>
 <pre><code class="language-nix">sound = {
-	enable = true;
+    enable = true;
 }
 </code></pre>
 <p>There's no preference to which one is right and which one is wrong, it's entirely up to you. Some people like to split them up to make sections easier to read.</p>
-<h3><a class="header" href="#recursive-sets-rec" id="recursive-sets-rec">Recursive sets (<code>rec</code>)</a></h3>
+<a class="header" href="#recursive-sets-rec" id="recursive-sets-rec"><h3>Recursive sets (<code>rec</code>)</h3></a>
 <p>Sets that use variables or values that are declared inside itself need to be declared as a recursive set. This is done using the <code>rec</code> keyword, which comes <em>just before</em> the opening curly brackets:</p>
 <pre><code class="language-nix">someSet = rec {
     someValue = 2;

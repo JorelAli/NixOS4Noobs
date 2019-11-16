@@ -4,8 +4,6 @@
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
         <title>Setting package options - NixOS4Noobs</title>
-        
-
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -34,10 +32,7 @@
     </head>
     <body class="light">
         <!-- Provide site root to javascript -->
-        <script type="text/javascript">
-            var path_to_root = "";
-            var default_theme = "light";
-        </script>
+        <script type="text/javascript">var path_to_root = "";</script>
 
         <!-- Work around some values being stored in localStorage wrapped in quotes -->
         <script type="text/javascript">
@@ -58,8 +53,8 @@
         <!-- Set the theme before any content is loaded, prevents flash -->
         <script type="text/javascript">
             var theme;
-            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
-            if (theme === null || theme === undefined) { theme = default_theme; }
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { } 
+            if (theme === null || theme === undefined) { theme = 'light'; }
             document.body.className = theme;
             document.querySelector('html').className = theme + ' js';
         </script>
@@ -77,10 +72,7 @@
         </script>
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
-            <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="affix"><a href="intro.html">Introduction</a></li><li class="affix"><a href="about.html">About</a></li><li><a href="gettingstarted.html"><strong aria-hidden="true">1.</strong> Getting Started</a></li><li><ol class="section"><li><a href="installingprogs.html"><strong aria-hidden="true">1.1.</strong> Installing programs</a></li><li><a href="services.html"><strong aria-hidden="true">1.2.</strong> Setting up services</a></li><li><a href="envvars.html"><strong aria-hidden="true">1.3.</strong> Setting environment variables</a></li><li><a href="fonts.html"><strong aria-hidden="true">1.4.</strong> Installing fonts</a></li><li><a href="options.html"><strong aria-hidden="true">1.5.</strong> NixOS configuration options</a></li></ol></li><li><a href="packages.html"><strong aria-hidden="true">2.</strong> Managing Nix Packages</a></li><li><ol class="section"><li><a href="channels.html"><strong aria-hidden="true">2.1.</strong> Nix channels</a></li><li><a href="garbage.html"><strong aria-hidden="true">2.2.</strong> Nix garbage collection</a></li><li><a href="packageoptions.html" class="active"><strong aria-hidden="true">2.3.</strong> Setting package options</a></li><li><a href="overriding.html"><strong aria-hidden="true">2.4.</strong> Overriding attributes [WIP]</a></li></ol></li><li><a href="containerschapter.html"><strong aria-hidden="true">3.</strong> Sandboxes &amp; Containers [WIP]</a></li><li><ol class="section"><li><a href="nixsandboxes.html"><strong aria-hidden="true">3.1.</strong> Nix shell sandboxes</a></li><li><a href="containers.html"><strong aria-hidden="true">3.2.</strong> Containers [WIP]</a></li></ol></li><li><a href="derivations.html"><strong aria-hidden="true">4.</strong> Making Nix packages [WIP]</a></li><li><ol class="section"><li><a href="buildingpackages.html"><strong aria-hidden="true">4.1.</strong> Building packages [WIP]</a></li></ol></li><li><a href="nixexpressions.html"><strong aria-hidden="true">5.</strong> Nix Expressions</a></li><li><a href="advancednix.html"><strong aria-hidden="true">6.</strong> Advanced Nix</a></li><li><ol class="section"><li><a href="modules.html"><strong aria-hidden="true">6.1.</strong> Modules</a></li><li><a href="overlays.html"><strong aria-hidden="true">6.2.</strong> Overlays</a></li></ol></li><li><a href="unsafe.html"><strong aria-hidden="true">7.</strong> Unsafe NixOS</a></li><li><a href="tipsandtricks.html"><strong aria-hidden="true">8.</strong> Tips &amp; Tricks</a></li></ol>
-            </div>
-            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+            <ol class="chapter"><li class="affix"><a href="intro.html">Introduction</a></li><li class="affix"><a href="about.html">About</a></li><li><a href="gettingstarted.html"><strong aria-hidden="true">1.</strong> Getting Started</a></li><li><ol class="section"><li><a href="installingprogs.html"><strong aria-hidden="true">1.1.</strong> Installing programs</a></li><li><a href="services.html"><strong aria-hidden="true">1.2.</strong> Setting up services</a></li><li><a href="envvars.html"><strong aria-hidden="true">1.3.</strong> Setting environment variables</a></li><li><a href="fonts.html"><strong aria-hidden="true">1.4.</strong> Installing fonts</a></li><li><a href="options.html"><strong aria-hidden="true">1.5.</strong> NixOS configuration options</a></li></ol></li><li><a href="packages.html"><strong aria-hidden="true">2.</strong> Managing Nix Packages</a></li><li><ol class="section"><li><a href="channels.html"><strong aria-hidden="true">2.1.</strong> Nix channels</a></li><li><a href="garbage.html"><strong aria-hidden="true">2.2.</strong> Nix garbage collection</a></li><li><a href="packageoptions.html" class="active"><strong aria-hidden="true">2.3.</strong> Setting package options</a></li><li><a href="overriding.html"><strong aria-hidden="true">2.4.</strong> Overriding attributes [WIP]</a></li></ol></li><li><a href="containerschapter.html"><strong aria-hidden="true">3.</strong> Sandboxes &amp; Containers [WIP]</a></li><li><ol class="section"><li><a href="nixsandboxes.html"><strong aria-hidden="true">3.1.</strong> Nix shell sandboxes</a></li><li><a href="containers.html"><strong aria-hidden="true">3.2.</strong> Containers [WIP]</a></li></ol></li><li><a href="derivations.html"><strong aria-hidden="true">4.</strong> Making Nix packages [WIP]</a></li><li><ol class="section"><li><a href="buildingpackages.html"><strong aria-hidden="true">4.1.</strong> Building packages [WIP]</a></li></ol></li><li><a href="nixexpressions.html"><strong aria-hidden="true">5.</strong> Nix Expressions</a></li><li><a href="advancednix.html"><strong aria-hidden="true">6.</strong> Advanced Nix</a></li><li><ol class="section"><li><a href="modules.html"><strong aria-hidden="true">6.1.</strong> Modules</a></li><li><a href="overlays.html"><strong aria-hidden="true">6.2.</strong> Overlays</a></li><li><a href="nixshell.html"><strong aria-hidden="true">6.3.</strong> Nix Shell</a></li></ol></li><li><a href="unsafe.html"><strong aria-hidden="true">7.</strong> Unsafe NixOS</a></li><li><a href="tipsandtricks.html"><strong aria-hidden="true">8.</strong> Tips &amp; Tricks</a></li></ol>
         </nav>
 
         <div id="page-wrapper" class="page-wrapper">
@@ -97,7 +89,7 @@
                                 <i class="fa fa-paint-brush"></i>
                             </button>
                             <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
-                                <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="light">Light <span class="default">(default)</span></button></li>
                                 <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
                                 <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
                                 <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
@@ -110,13 +102,12 @@
                             
                         </div>
 
-                        <h1 class="menu-title">NixOS4Noobs</h1>
+                        <h1 class="menu-title">NixOS4Noobs</h1> 
 
                         <div class="right-buttons">
                             <a href="print.html" title="Print this book" aria-label="Print this book">
                                 <i id="print-button" class="fa fa-print"></i>
                             </a>
-                            
                         </div>
                     </div>
                 </div>
@@ -145,17 +136,17 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1><a class="header" href="#setting-package-options" id="setting-package-options">Setting package options</a></h1>
+                        <a class="header" href="#setting-package-options" id="setting-package-options"><h1>Setting package options</h1></a>
 <p>The NixOS configuration file not only allows you to configure the system, but it also allows you to configure the process of building itself. This is done by changing the attributes of the <code>nixpkgs</code> option. This also allows you to edit the settings of other applications which are installed in your system packages.</p>
-<h2><a class="header" href="#enabling-unfree-software" id="enabling-unfree-software">Enabling unfree software</a></h2>
+<a class="header" href="#enabling-unfree-software" id="enabling-unfree-software"><h2>Enabling unfree software</h2></a>
 <p>As mentioned in the chapter on installing programs, unfree software (software that is not permitted to be redistributed) can be installed by using the following in your <code>configuration.nix</code> file:</p>
 <pre><code class="language-nix">nixpkgs.config = {
-	allowUnfree = true;
+    allowUnfree = true;
 };
 </code></pre>
-<h2><a class="header" href="#setting-package-specific-settings" id="setting-package-specific-settings">Setting package specific settings</a></h2>
+<a class="header" href="#setting-package-specific-settings" id="setting-package-specific-settings"><h2>Setting package specific settings</h2></a>
 <p>Using the <a href="https://nixos.org/nixos/packages.html#">NixOS package search website</a> that was described in the chapter on installing programs, we are able to search for packages that we want. When you click on the package, it provides information about the package. In particular, we want to look at the <strong>Nix expression</strong> for the package. This concept is better explained using an example:</p>
-<h3><a class="header" href="#example-enabling-flash-on-chromium" id="example-enabling-flash-on-chromium">Example: Enabling flash on Chromium:</a></h3>
+<a class="header" href="#example-enabling-flash-on-chromium" id="example-enabling-flash-on-chromium"><h3>Example: Enabling flash on Chromium:</h3></a>
 <p>Firstly, we search for chromium using the NixOS package website. Clicking on the result provides us with a link to the Nix expression where this package is defined:</p>
 <p><img src="./chromium.png" alt="chromium result from the online website" /></p>
 <p>Following the link leads us to a file called <code>browser.nix</code>. Unfortunately, in order to find the list of potential settings, we need to use the main endpoint for packages, which is the <code>default.nix</code> file. This can be done by changing directories (shown at the top of the file on GitHub) to find the relevant <code>default.nix</code> file.</p>
@@ -180,9 +171,9 @@
 <p>Any parameters followed with a <code>?</code> are basically optional, where the value after the <code>?</code> is their default value. In this example, we want to enable flash, so what we want to do is basically redefine the package named &quot;chromium&quot; with a copy of the package, except with the <code>enablePepperFlash</code> option set to true.</p>
 <pre><code class="language-nix">nixpkgs.config = {
 
-	chromium = {
-		enablePepperFlash = true;
-	};
+    chromium = {
+        enablePepperFlash = true;
+    };
 
 };
 </code></pre>

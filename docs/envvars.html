@@ -4,8 +4,6 @@
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
         <title>Setting environment variables - NixOS4Noobs</title>
-        
-
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -34,10 +32,7 @@
     </head>
     <body class="light">
         <!-- Provide site root to javascript -->
-        <script type="text/javascript">
-            var path_to_root = "";
-            var default_theme = "light";
-        </script>
+        <script type="text/javascript">var path_to_root = "";</script>
 
         <!-- Work around some values being stored in localStorage wrapped in quotes -->
         <script type="text/javascript">
@@ -58,8 +53,8 @@
         <!-- Set the theme before any content is loaded, prevents flash -->
         <script type="text/javascript">
             var theme;
-            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
-            if (theme === null || theme === undefined) { theme = default_theme; }
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { } 
+            if (theme === null || theme === undefined) { theme = 'light'; }
             document.body.className = theme;
             document.querySelector('html').className = theme + ' js';
         </script>
@@ -77,10 +72,7 @@
         </script>
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
-            <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="affix"><a href="intro.html">Introduction</a></li><li class="affix"><a href="about.html">About</a></li><li><a href="gettingstarted.html"><strong aria-hidden="true">1.</strong> Getting Started</a></li><li><ol class="section"><li><a href="installingprogs.html"><strong aria-hidden="true">1.1.</strong> Installing programs</a></li><li><a href="services.html"><strong aria-hidden="true">1.2.</strong> Setting up services</a></li><li><a href="envvars.html" class="active"><strong aria-hidden="true">1.3.</strong> Setting environment variables</a></li><li><a href="fonts.html"><strong aria-hidden="true">1.4.</strong> Installing fonts</a></li><li><a href="options.html"><strong aria-hidden="true">1.5.</strong> NixOS configuration options</a></li></ol></li><li><a href="packages.html"><strong aria-hidden="true">2.</strong> Managing Nix Packages</a></li><li><ol class="section"><li><a href="channels.html"><strong aria-hidden="true">2.1.</strong> Nix channels</a></li><li><a href="garbage.html"><strong aria-hidden="true">2.2.</strong> Nix garbage collection</a></li><li><a href="packageoptions.html"><strong aria-hidden="true">2.3.</strong> Setting package options</a></li><li><a href="overriding.html"><strong aria-hidden="true">2.4.</strong> Overriding attributes [WIP]</a></li></ol></li><li><a href="containerschapter.html"><strong aria-hidden="true">3.</strong> Sandboxes &amp; Containers [WIP]</a></li><li><ol class="section"><li><a href="nixsandboxes.html"><strong aria-hidden="true">3.1.</strong> Nix shell sandboxes</a></li><li><a href="containers.html"><strong aria-hidden="true">3.2.</strong> Containers [WIP]</a></li></ol></li><li><a href="derivations.html"><strong aria-hidden="true">4.</strong> Making Nix packages [WIP]</a></li><li><ol class="section"><li><a href="buildingpackages.html"><strong aria-hidden="true">4.1.</strong> Building packages [WIP]</a></li></ol></li><li><a href="nixexpressions.html"><strong aria-hidden="true">5.</strong> Nix Expressions</a></li><li><a href="advancednix.html"><strong aria-hidden="true">6.</strong> Advanced Nix</a></li><li><ol class="section"><li><a href="modules.html"><strong aria-hidden="true">6.1.</strong> Modules</a></li><li><a href="overlays.html"><strong aria-hidden="true">6.2.</strong> Overlays</a></li></ol></li><li><a href="unsafe.html"><strong aria-hidden="true">7.</strong> Unsafe NixOS</a></li><li><a href="tipsandtricks.html"><strong aria-hidden="true">8.</strong> Tips &amp; Tricks</a></li></ol>
-            </div>
-            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+            <ol class="chapter"><li class="affix"><a href="intro.html">Introduction</a></li><li class="affix"><a href="about.html">About</a></li><li><a href="gettingstarted.html"><strong aria-hidden="true">1.</strong> Getting Started</a></li><li><ol class="section"><li><a href="installingprogs.html"><strong aria-hidden="true">1.1.</strong> Installing programs</a></li><li><a href="services.html"><strong aria-hidden="true">1.2.</strong> Setting up services</a></li><li><a href="envvars.html" class="active"><strong aria-hidden="true">1.3.</strong> Setting environment variables</a></li><li><a href="fonts.html"><strong aria-hidden="true">1.4.</strong> Installing fonts</a></li><li><a href="options.html"><strong aria-hidden="true">1.5.</strong> NixOS configuration options</a></li></ol></li><li><a href="packages.html"><strong aria-hidden="true">2.</strong> Managing Nix Packages</a></li><li><ol class="section"><li><a href="channels.html"><strong aria-hidden="true">2.1.</strong> Nix channels</a></li><li><a href="garbage.html"><strong aria-hidden="true">2.2.</strong> Nix garbage collection</a></li><li><a href="packageoptions.html"><strong aria-hidden="true">2.3.</strong> Setting package options</a></li><li><a href="overriding.html"><strong aria-hidden="true">2.4.</strong> Overriding attributes [WIP]</a></li></ol></li><li><a href="containerschapter.html"><strong aria-hidden="true">3.</strong> Sandboxes &amp; Containers [WIP]</a></li><li><ol class="section"><li><a href="nixsandboxes.html"><strong aria-hidden="true">3.1.</strong> Nix shell sandboxes</a></li><li><a href="containers.html"><strong aria-hidden="true">3.2.</strong> Containers [WIP]</a></li></ol></li><li><a href="derivations.html"><strong aria-hidden="true">4.</strong> Making Nix packages [WIP]</a></li><li><ol class="section"><li><a href="buildingpackages.html"><strong aria-hidden="true">4.1.</strong> Building packages [WIP]</a></li></ol></li><li><a href="nixexpressions.html"><strong aria-hidden="true">5.</strong> Nix Expressions</a></li><li><a href="advancednix.html"><strong aria-hidden="true">6.</strong> Advanced Nix</a></li><li><ol class="section"><li><a href="modules.html"><strong aria-hidden="true">6.1.</strong> Modules</a></li><li><a href="overlays.html"><strong aria-hidden="true">6.2.</strong> Overlays</a></li><li><a href="nixshell.html"><strong aria-hidden="true">6.3.</strong> Nix Shell</a></li></ol></li><li><a href="unsafe.html"><strong aria-hidden="true">7.</strong> Unsafe NixOS</a></li><li><a href="tipsandtricks.html"><strong aria-hidden="true">8.</strong> Tips &amp; Tricks</a></li></ol>
         </nav>
 
         <div id="page-wrapper" class="page-wrapper">
@@ -97,7 +89,7 @@
                                 <i class="fa fa-paint-brush"></i>
                             </button>
                             <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
-                                <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="light">Light <span class="default">(default)</span></button></li>
                                 <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
                                 <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
                                 <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
@@ -110,13 +102,12 @@
                             
                         </div>
 
-                        <h1 class="menu-title">NixOS4Noobs</h1>
+                        <h1 class="menu-title">NixOS4Noobs</h1> 
 
                         <div class="right-buttons">
                             <a href="print.html" title="Print this book" aria-label="Print this book">
                                 <i id="print-button" class="fa fa-print"></i>
                             </a>
-                            
                         </div>
                     </div>
                 </div>
@@ -145,33 +136,33 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1><a class="header" href="#setting-environment-variables" id="setting-environment-variables">Setting environment variables</a></h1>
+                        <a class="header" href="#setting-environment-variables" id="setting-environment-variables"><h1>Setting environment variables</h1></a>
 <p>Environment variables can also be set using your <code>configuration.nix</code> file. This is done using the <code>environment.variables</code> setting:</p>
 <pre><code class="language-nix">environment.variables = {
-	# Environment variables go here
+    # Environment variables go here
 };
 </code></pre>
-<h2><a class="header" href="#single-value-environment-variables" id="single-value-environment-variables">Single value environment variables</a></h2>
+<a class="header" href="#single-value-environment-variables" id="single-value-environment-variables"><h2>Single value environment variables</h2></a>
 <p>Environment variables with a single value can be defined using a simple assignment of the environment variable name and its corresponding value:</p>
 <pre><code class="language-nix">environment.variables = {
-	XDG_CONFIG_HOME = &quot;$HOME/.config&quot;;
+    XDG_CONFIG_HOME = &quot;$HOME/.config&quot;;
 };
 </code></pre>
-<h2><a class="header" href="#multi-value-environment-variables" id="multi-value-environment-variables">Multi value environment variables</a></h2>
+<a class="header" href="#multi-value-environment-variables" id="multi-value-environment-variables"><h2>Multi value environment variables</h2></a>
 <p>Environment variables that use a list of values (e.g. <code>$PATH</code>, <code>$XCURSOR_PATH</code>) can be declared using a Nix Expression list type as shown:</p>
 <pre><code class="language-nix">environment.variables = {
-	XCURSOR_PATH = [
-		&quot;$HOME/.icons&quot;
-		&quot;$HOME/.nix-profile/share/icons&quot;
-	];
+    XCURSOR_PATH = [
+        &quot;$HOME/.icons&quot;
+        &quot;$HOME/.nix-profile/share/icons&quot;
+    ];
 };
 </code></pre>
-<h2><a class="header" href="#using-the-system-path" id="using-the-system-path">Using the system path</a></h2>
+<a class="header" href="#using-the-system-path" id="using-the-system-path"><h2>Using the system path</h2></a>
 <p>To use the current system path which will be generated when building the NixOS configuration, you can use the Nix Expression string with enclosed Nix expressions:</p>
 <pre><code class="language-nix">environment.variables = {
-	XCURSOR_PATH = [
-		&quot;${config.system.path}/share/icons&quot;
-	];
+    XCURSOR_PATH = [
+        &quot;${config.system.path}/share/icons&quot;
+    ];
 };
 </code></pre>
 <p>This will map <code>${config.system.path}</code> to the directory <code>/run/current-system/sw/</code> when the system is built.</p>

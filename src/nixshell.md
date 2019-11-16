@@ -1,0 +1,3 @@
+# Nix Shell
+
+In chapter [3.1. Nix shell sandboxes](./nixsandboxes.md), we discussed...

@@ -24,5 +24,6 @@
 - [Advanced Nix](./advancednix.md)
   - [Modules](./modules.md)
   - [Overlays](./overlays.md)
+  - [Nix Shell](./nixshell.md)
 - [Unsafe NixOS](./unsafe.md)
 - [Tips & Tricks](./tipsandtricks.md)

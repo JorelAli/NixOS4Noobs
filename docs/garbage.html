@@ -4,8 +4,6 @@
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
         <title>Nix garbage collection - NixOS4Noobs</title>
-        
-
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -34,10 +32,7 @@
     </head>
     <body class="light">
         <!-- Provide site root to javascript -->
-        <script type="text/javascript">
-            var path_to_root = "";
-            var default_theme = "light";
-        </script>
+        <script type="text/javascript">var path_to_root = "";</script>
 
         <!-- Work around some values being stored in localStorage wrapped in quotes -->
         <script type="text/javascript">
@@ -58,8 +53,8 @@
         <!-- Set the theme before any content is loaded, prevents flash -->
         <script type="text/javascript">
             var theme;
-            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
-            if (theme === null || theme === undefined) { theme = default_theme; }
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { } 
+            if (theme === null || theme === undefined) { theme = 'light'; }
             document.body.className = theme;
             document.querySelector('html').className = theme + ' js';
         </script>
@@ -77,10 +72,7 @@
         </script>
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
-            <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="affix"><a href="intro.html">Introduction</a></li><li class="affix"><a href="about.html">About</a></li><li><a href="gettingstarted.html"><strong aria-hidden="true">1.</strong> Getting Started</a></li><li><ol class="section"><li><a href="installingprogs.html"><strong aria-hidden="true">1.1.</strong> Installing programs</a></li><li><a href="services.html"><strong aria-hidden="true">1.2.</strong> Setting up services</a></li><li><a href="envvars.html"><strong aria-hidden="true">1.3.</strong> Setting environment variables</a></li><li><a href="fonts.html"><strong aria-hidden="true">1.4.</strong> Installing fonts</a></li><li><a href="options.html"><strong aria-hidden="true">1.5.</strong> NixOS configuration options</a></li></ol></li><li><a href="packages.html"><strong aria-hidden="true">2.</strong> Managing Nix Packages</a></li><li><ol class="section"><li><a href="channels.html"><strong aria-hidden="true">2.1.</strong> Nix channels</a></li><li><a href="garbage.html" class="active"><strong aria-hidden="true">2.2.</strong> Nix garbage collection</a></li><li><a href="packageoptions.html"><strong aria-hidden="true">2.3.</strong> Setting package options</a></li><li><a href="overriding.html"><strong aria-hidden="true">2.4.</strong> Overriding attributes [WIP]</a></li></ol></li><li><a href="containerschapter.html"><strong aria-hidden="true">3.</strong> Sandboxes &amp; Containers [WIP]</a></li><li><ol class="section"><li><a href="nixsandboxes.html"><strong aria-hidden="true">3.1.</strong> Nix shell sandboxes</a></li><li><a href="containers.html"><strong aria-hidden="true">3.2.</strong> Containers [WIP]</a></li></ol></li><li><a href="derivations.html"><strong aria-hidden="true">4.</strong> Making Nix packages [WIP]</a></li><li><ol class="section"><li><a href="buildingpackages.html"><strong aria-hidden="true">4.1.</strong> Building packages [WIP]</a></li></ol></li><li><a href="nixexpressions.html"><strong aria-hidden="true">5.</strong> Nix Expressions</a></li><li><a href="advancednix.html"><strong aria-hidden="true">6.</strong> Advanced Nix</a></li><li><ol class="section"><li><a href="modules.html"><strong aria-hidden="true">6.1.</strong> Modules</a></li><li><a href="overlays.html"><strong aria-hidden="true">6.2.</strong> Overlays</a></li></ol></li><li><a href="unsafe.html"><strong aria-hidden="true">7.</strong> Unsafe NixOS</a></li><li><a href="tipsandtricks.html"><strong aria-hidden="true">8.</strong> Tips &amp; Tricks</a></li></ol>
-            </div>
-            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+            <ol class="chapter"><li class="affix"><a href="intro.html">Introduction</a></li><li class="affix"><a href="about.html">About</a></li><li><a href="gettingstarted.html"><strong aria-hidden="true">1.</strong> Getting Started</a></li><li><ol class="section"><li><a href="installingprogs.html"><strong aria-hidden="true">1.1.</strong> Installing programs</a></li><li><a href="services.html"><strong aria-hidden="true">1.2.</strong> Setting up services</a></li><li><a href="envvars.html"><strong aria-hidden="true">1.3.</strong> Setting environment variables</a></li><li><a href="fonts.html"><strong aria-hidden="true">1.4.</strong> Installing fonts</a></li><li><a href="options.html"><strong aria-hidden="true">1.5.</strong> NixOS configuration options</a></li></ol></li><li><a href="packages.html"><strong aria-hidden="true">2.</strong> Managing Nix Packages</a></li><li><ol class="section"><li><a href="channels.html"><strong aria-hidden="true">2.1.</strong> Nix channels</a></li><li><a href="garbage.html" class="active"><strong aria-hidden="true">2.2.</strong> Nix garbage collection</a></li><li><a href="packageoptions.html"><strong aria-hidden="true">2.3.</strong> Setting package options</a></li><li><a href="overriding.html"><strong aria-hidden="true">2.4.</strong> Overriding attributes [WIP]</a></li></ol></li><li><a href="containerschapter.html"><strong aria-hidden="true">3.</strong> Sandboxes &amp; Containers [WIP]</a></li><li><ol class="section"><li><a href="nixsandboxes.html"><strong aria-hidden="true">3.1.</strong> Nix shell sandboxes</a></li><li><a href="containers.html"><strong aria-hidden="true">3.2.</strong> Containers [WIP]</a></li></ol></li><li><a href="derivations.html"><strong aria-hidden="true">4.</strong> Making Nix packages [WIP]</a></li><li><ol class="section"><li><a href="buildingpackages.html"><strong aria-hidden="true">4.1.</strong> Building packages [WIP]</a></li></ol></li><li><a href="nixexpressions.html"><strong aria-hidden="true">5.</strong> Nix Expressions</a></li><li><a href="advancednix.html"><strong aria-hidden="true">6.</strong> Advanced Nix</a></li><li><ol class="section"><li><a href="modules.html"><strong aria-hidden="true">6.1.</strong> Modules</a></li><li><a href="overlays.html"><strong aria-hidden="true">6.2.</strong> Overlays</a></li><li><a href="nixshell.html"><strong aria-hidden="true">6.3.</strong> Nix Shell</a></li></ol></li><li><a href="unsafe.html"><strong aria-hidden="true">7.</strong> Unsafe NixOS</a></li><li><a href="tipsandtricks.html"><strong aria-hidden="true">8.</strong> Tips &amp; Tricks</a></li></ol>
         </nav>
 
         <div id="page-wrapper" class="page-wrapper">
@@ -97,7 +89,7 @@
                                 <i class="fa fa-paint-brush"></i>
                             </button>
                             <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
-                                <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="light">Light <span class="default">(default)</span></button></li>
                                 <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
                                 <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
                                 <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
@@ -110,13 +102,12 @@
                             
                         </div>
 
-                        <h1 class="menu-title">NixOS4Noobs</h1>
+                        <h1 class="menu-title">NixOS4Noobs</h1> 
 
                         <div class="right-buttons">
                             <a href="print.html" title="Print this book" aria-label="Print this book">
                                 <i id="print-button" class="fa fa-print"></i>
                             </a>
-                            
                         </div>
                     </div>
                 </div>
@@ -145,7 +136,7 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1><a class="header" href="#nix-garbage-collection" id="nix-garbage-collection">Nix garbage collection</a></h1>
+                        <a class="header" href="#nix-garbage-collection" id="nix-garbage-collection"><h1>Nix garbage collection</h1></a>
 <p>With NixOS, it's important to clear the garbage now and then. Clearing the garbage removes the following things from your system:</p>
 <ul>
 <li>Old boot entries</li>
@@ -154,7 +145,7 @@
 <li>Stale symlinks</li>
 </ul>
 <p>Clearing the garbage means that certain packages which were downloaded on the fly will be removed <em>(For example, packages downloaded using <code>nix-shell -p</code>)</em>, and will have to be re-fetched in order to use them again.</p>
-<h2><a class="header" href="#clearing-all-of-the-garbage" id="clearing-all-of-the-garbage">Clearing all of the garbage</a></h2>
+<a class="header" href="#clearing-all-of-the-garbage" id="clearing-all-of-the-garbage"><h2>Clearing all of the garbage</h2></a>
 <blockquote>
 <p><strong>Warning</strong></p>
 <p>Clearing old boot entries makes rolling back to a previous configuration impossible. Only do this if you are certain that your current system is stable. <strong>This action cannot be undone.</strong></p>
@@ -164,16 +155,16 @@
 sudo nixos-rebuild switch
 </code></pre>
 <p>Rebuilding the system at the end is required to update the set of boot entries.</p>
-<h2><a class="header" href="#clearing-some-of-the-garbage" id="clearing-some-of-the-garbage">Clearing some of the garbage</a></h2>
+<a class="header" href="#clearing-some-of-the-garbage" id="clearing-some-of-the-garbage"><h2>Clearing some of the garbage</h2></a>
 <p>Instead of clearing absolutely everything, it's often better to just clear the majority of the garbage. This doesn't clear the boot entries and ensures that previous generations are kept safe, so you are able to rollback if needed:</p>
 <pre><code>sudo nix-collect-garbage
 </code></pre>
-<h2><a class="header" href="#automatically-clearing-garbage" id="automatically-clearing-garbage">Automatically clearing garbage</a></h2>
+<a class="header" href="#automatically-clearing-garbage" id="automatically-clearing-garbage"><h2>Automatically clearing garbage</h2></a>
 <p>NixOS provides a configuration option that allows it to automatically collect the garbage at certain time intervals. This is done using the <code>nix.gc</code> option:</p>
 <pre><code class="language-nix">nix.gc = {
-	automatic = true;  # Enable the automatic garbage collector
-	dates = &quot;03:15&quot;;   # When to run the garbage collector
-	options = &quot;-d&quot;;    # Arguments to pass to nix-collect-garbage
+    automatic = true;  # Enable the automatic garbage collector
+    dates = &quot;03:15&quot;;   # When to run the garbage collector
+    options = &quot;-d&quot;;    # Arguments to pass to nix-collect-garbage
 };
 </code></pre>
 <p>The format for the <code>dates</code> attribute can be found at the <a href="https://www.freedesktop.org/software/systemd/man/systemd.time.html">systemd.time man page</a>.</p>

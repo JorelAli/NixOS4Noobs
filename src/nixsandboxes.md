@@ -1,6 +1,6 @@
 # Nix shell sandboxes
 
-Say you want to test out a program, but don't want to go through all of the effort of adding it to your system configuration and rebuilding it. This is where Nix shell comes in[^1].
+Say you want to test out a program, but don't want to go through all of the effort of adding it to your system configuration and rebuilding it. This is where the Nix shell comes in.
 
 ## Temporarily using programs
 
@@ -54,7 +54,3 @@ As stated in the chapter on garbage collection, running the Nix garbage collecto
 ## Nix shells with `fish` or `zsh`
 
 When using Nix shells, it can sometimes be useful to keep track of what packages are currently installed in that instance of the Nix shell. A helpful tool is the [any-nix-shell](https://github.com/haslersn/any-nix-shell), which shows the information of temporarily installed packages when using the fish shell or the z shell.
-
------
-
-[^1]: The Nix shell is capable of much more advanced things than just sandboxes, but for the sake of a NixOS4Noobs, we'll just assume it's used for sandboxes.
