@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Nix shell sandboxes - NixOS4Noobs</title>
+        <title>Filesystem Hierarchy Standard - NixOS4Noobs</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -72,7 +72,7 @@
         </script>
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
-            <ol class="chapter"><li class="affix"><a href="intro.html">Introduction</a></li><li class="affix"><a href="about.html">About</a></li><li><a href="gettingstarted.html"><strong aria-hidden="true">1.</strong> Getting Started</a></li><li><ol class="section"><li><a href="installingprogs.html"><strong aria-hidden="true">1.1.</strong> Installing programs</a></li><li><a href="services.html"><strong aria-hidden="true">1.2.</strong> Setting up services</a></li><li><a href="envvars.html"><strong aria-hidden="true">1.3.</strong> Setting environment variables</a></li><li><a href="fonts.html"><strong aria-hidden="true">1.4.</strong> Installing fonts</a></li><li><a href="options.html"><strong aria-hidden="true">1.5.</strong> NixOS configuration options</a></li></ol></li><li><a href="packages.html"><strong aria-hidden="true">2.</strong> Managing Nix Packages</a></li><li><ol class="section"><li><a href="channels.html"><strong aria-hidden="true">2.1.</strong> Nix channels</a></li><li><a href="garbage.html"><strong aria-hidden="true">2.2.</strong> Nix garbage collection</a></li><li><a href="packageoptions.html"><strong aria-hidden="true">2.3.</strong> Setting package options</a></li><li><a href="overriding.html"><strong aria-hidden="true">2.4.</strong> Overriding attributes [WIP]</a></li></ol></li><li><a href="containerschapter.html"><strong aria-hidden="true">3.</strong> Sandboxes &amp; Containers [WIP]</a></li><li><ol class="section"><li><a href="nixsandboxes.html" class="active"><strong aria-hidden="true">3.1.</strong> Nix shell sandboxes</a></li><li><a href="containers.html"><strong aria-hidden="true">3.2.</strong> Containers [WIP]</a></li></ol></li><li><a href="derivations.html"><strong aria-hidden="true">4.</strong> Making Nix packages [WIP]</a></li><li><ol class="section"><li><a href="buildingpackages.html"><strong aria-hidden="true">4.1.</strong> Building packages [WIP]</a></li></ol></li><li><a href="nixexpressions.html"><strong aria-hidden="true">5.</strong> Nix Expressions</a></li><li><a href="advancednix.html"><strong aria-hidden="true">6.</strong> Advanced Nix</a></li><li><ol class="section"><li><a href="modules.html"><strong aria-hidden="true">6.1.</strong> Modules [WIP]</a></li><li><a href="overlays.html"><strong aria-hidden="true">6.2.</strong> Overlays [WIP]</a></li><li><a href="nixshell.html"><strong aria-hidden="true">6.3.</strong> Nix Shell [WIP]</a></li></ol></li><li><a href="tipsandtricks.html"><strong aria-hidden="true">7.</strong> Tips &amp; Tricks [WIP]</a></li><li><ol class="section"><li><a href="fhs.html"><strong aria-hidden="true">7.1.</strong> Filesystem Hierarchy Standard</a></li></ol></li><li><a href="unsafe.html"><strong aria-hidden="true">8.</strong> Unsafe NixOS</a></li></ol>
+            <ol class="chapter"><li class="affix"><a href="intro.html">Introduction</a></li><li class="affix"><a href="about.html">About</a></li><li><a href="gettingstarted.html"><strong aria-hidden="true">1.</strong> Getting Started</a></li><li><ol class="section"><li><a href="installingprogs.html"><strong aria-hidden="true">1.1.</strong> Installing programs</a></li><li><a href="services.html"><strong aria-hidden="true">1.2.</strong> Setting up services</a></li><li><a href="envvars.html"><strong aria-hidden="true">1.3.</strong> Setting environment variables</a></li><li><a href="fonts.html"><strong aria-hidden="true">1.4.</strong> Installing fonts</a></li><li><a href="options.html"><strong aria-hidden="true">1.5.</strong> NixOS configuration options</a></li></ol></li><li><a href="packages.html"><strong aria-hidden="true">2.</strong> Managing Nix Packages</a></li><li><ol class="section"><li><a href="channels.html"><strong aria-hidden="true">2.1.</strong> Nix channels</a></li><li><a href="garbage.html"><strong aria-hidden="true">2.2.</strong> Nix garbage collection</a></li><li><a href="packageoptions.html"><strong aria-hidden="true">2.3.</strong> Setting package options</a></li><li><a href="overriding.html"><strong aria-hidden="true">2.4.</strong> Overriding attributes [WIP]</a></li></ol></li><li><a href="containerschapter.html"><strong aria-hidden="true">3.</strong> Sandboxes &amp; Containers [WIP]</a></li><li><ol class="section"><li><a href="nixsandboxes.html"><strong aria-hidden="true">3.1.</strong> Nix shell sandboxes</a></li><li><a href="containers.html"><strong aria-hidden="true">3.2.</strong> Containers [WIP]</a></li></ol></li><li><a href="derivations.html"><strong aria-hidden="true">4.</strong> Making Nix packages [WIP]</a></li><li><ol class="section"><li><a href="buildingpackages.html"><strong aria-hidden="true">4.1.</strong> Building packages [WIP]</a></li></ol></li><li><a href="nixexpressions.html"><strong aria-hidden="true">5.</strong> Nix Expressions</a></li><li><a href="advancednix.html"><strong aria-hidden="true">6.</strong> Advanced Nix</a></li><li><ol class="section"><li><a href="modules.html"><strong aria-hidden="true">6.1.</strong> Modules [WIP]</a></li><li><a href="overlays.html"><strong aria-hidden="true">6.2.</strong> Overlays [WIP]</a></li><li><a href="nixshell.html"><strong aria-hidden="true">6.3.</strong> Nix Shell [WIP]</a></li></ol></li><li><a href="tipsandtricks.html"><strong aria-hidden="true">7.</strong> Tips &amp; Tricks [WIP]</a></li><li><ol class="section"><li><a href="fhs.html" class="active"><strong aria-hidden="true">7.1.</strong> Filesystem Hierarchy Standard</a></li></ol></li><li><a href="unsafe.html"><strong aria-hidden="true">8.</strong> Unsafe NixOS</a></li></ol>
         </nav>
 
         <div id="page-wrapper" class="page-wrapper">
@@ -136,53 +136,45 @@
 
                 <div id="content" class="content">
                     <main>
-                        <a class="header" href="#nix-shell-sandboxes" id="nix-shell-sandboxes"><h1>Nix shell sandboxes</h1></a>
-<p>Say you want to test out a program, but don't want to go through all of the effort of adding it to your system configuration and rebuilding it. This is where the Nix shell comes in.</p>
-<a class="header" href="#temporarily-using-programs" id="temporarily-using-programs"><h2>Temporarily using programs</h2></a>
-<p>To temporarily bring a Nix package into the scope of your current terminal, you can use the <code>nix-shell -p</code> command. This lets you specify Nix packages which will be included in the &quot;nix shell&quot; environment, <em><strong>as well as your current packages</strong></em>.</p>
-<pre><code>$ nix-shell -p hello
-
-[nix-shell:~]$ hello
-Hello, world!
-</code></pre>
-<p>You are still able to modify the environment around you (e.g. create folders, edit files, open programs that are currently installed on your system). When you exit the nix shell (Using the <code>exit</code> command), that package is not present on your current system. For example, if I use <code>nix-shell -p hello</code>, the <code>hello</code> command is <em>only</em> present in the nix shell even if it wasn't installed with my main configuration.</p>
-<p>To add multiple packages, include their names (as if you were adding it to your <code>configuration.nix</code> file) with a space between each one:</p>
-<pre><code>$ nix-shell -p hello gnome3.gnome-mahjongg vitetris
-</code></pre>
-<a class="header" href="#pure-nix-shell-environments" id="pure-nix-shell-environments"><h2>Pure Nix shell environments</h2></a>
-<p>By adding the <code>--pure</code> tag to the <code>nix-shell</code> command, you are able to create an environment which contains <strong>none</strong> of the packages installed on your current system.</p>
-<p>For example, if you have the following in your <code>configuration.nix</code> file:</p>
+                        <a class="header" href="#filesystem-hierarchy-standard" id="filesystem-hierarchy-standard"><h1>Filesystem Hierarchy Standard</h1></a>
+<p>Sometimes, things <em>just don't work</em> on NixOS. For example, say a developer has written a program that uses the an executable in the directory <code>/usr/bin/someExecutable</code>. Unfortunately, say this developer also hardcoded this directory path in their code. This means that we cannot change it, or patch it using normal means (such as creating a wrapper for it).</p>
+<p>In order to bypass this, we can create a sandbox in NixOS that uses the Unix &quot;Filesystem Hierarchy Standard&quot; (FHS<sup class="footnote-reference"><a href="#1">1</a></sup>).</p>
+<p>There are two methods of using the FHS:</p>
+<a class="header" href="#declaring-a-fhs-environment-in-the-configuration" id="declaring-a-fhs-environment-in-the-configuration"><h2>Declaring a FHS environment in the configuration</h2></a>
+<p>You can declare a FHS environment in your <code>configuration.nix</code> file. This allows you to enter this sandboxed environment using a command in any directory. This is done by using the <code>pkgs.buildFHSUserEnv</code> function to create a sandbox derivation.</p>
+<a class="header" href="#example-a-c-execution-environment-for-llvm" id="example-a-c-execution-environment-for-llvm"><h3>Example: A C++ execution environment for LLVM</h3></a>
+<p>In this example, we use <code>pkgs.buildFHSUserEnv</code> to create a sandbox to aid in C++ development for other Linux systems. We include various debugging tools, such as <code>gdb</code> and <code>valgrind</code>, as well as the required libraries that we'll need, such as <code>llvm</code>.</p>
 <pre><code class="language-nix">environment.systemPackages = with pkgs; [
-    hello
+    (pkgs.buildFHSUserEnv {
+        name = &quot;cppfhs&quot;;
+        runScript = &quot;bash&quot;;
+        targetPkgs = pkgs: with pkgs; [
+            clang_8 gdb llvm_8 valgrind
+        ]; 
+    })
 ];
 </code></pre>
-<p>Running the <code>hello</code> command in a pure nix shell that doesn't have the <em>hello</em> package will produce the following result:</p>
-<pre><code>$ nix-shell --pure -p
-
-[nix-shell:~]$ hello
-The program 'hello' is currently not installed. It is provided by several packages. You can install it by typing one of the following:
-    nix-env -iA nixos.hello
-    nix-env -iA nixos.mbedtls
-    nix-env -iA nixos.perkeep
+<p>We name this derivation <code>cppfhs</code>, which allows us to use the following command in any shell to quickly enter this environment:</p>
+<pre><code>$ cppfhs
 </code></pre>
-<a class="header" href="#garbage-collection-of-nix-shells" id="garbage-collection-of-nix-shells"><h2>Garbage collection of Nix shells</h2></a>
-<p>When a package is downloaded temporarily for use in the Nix shell, it is stored in the Nix store (in <code>/nix/store</code>) until garbage collected. Until it is garbage collected, opening the same Nix shell for downloaded programs will be instant (as they're already downloaded).</p>
-<p>As stated in the chapter on garbage collection, running the Nix garbage collector will remove any temporarily installed programs. Once garbage collected, in order to use them again, they will be redownloaded when a Nix shell is opened that requires packages which aren't in the Nix store.</p>
-<a class="header" href="#nix-shells-with-fish-or-zsh" id="nix-shells-with-fish-or-zsh"><h2>Nix shells with <code>fish</code> or <code>zsh</code></h2></a>
-<p>When using Nix shells, it can sometimes be useful to keep track of what packages are currently installed in that instance of the Nix shell. A helpful tool is the <a href="https://github.com/haslersn/any-nix-shell">any-nix-shell</a>, which shows the information of temporarily installed packages when using the fish shell or the z shell.</p>
+<a class="header" href="#declaring-a-fhs-environment-for-use-in-the-nix-shell-wip" id="declaring-a-fhs-environment-for-use-in-the-nix-shell-wip"><h2>Declaring a FHS environment for use in the Nix shell [WIP]</h2></a>
+<hr />
+<div class="footnote-definition" id="1"><sup class="footnote-definition-label">1</sup>
+<p>The Filesystem Hierarchy Standard specifies directories such as <code>/usr/bin</code>, <code>/usr/lib</code> and <code>/bin</code>. On NixOS, these directories exist, but aren't in use as you'd expect with regular Unix systems.</p>
+</div>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
                         
-                            <a rel="prev" href="containerschapter.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="tipsandtricks.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
                         
 
                         
-                            <a rel="next" href="containers.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next" href="unsafe.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
                         
@@ -194,13 +186,13 @@ The program 'hello' is currently not installed. It is provided by several packag
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
                 
-                    <a href="containerschapter.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a href="tipsandtricks.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
                 
 
                 
-                    <a href="containers.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a href="unsafe.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
                 

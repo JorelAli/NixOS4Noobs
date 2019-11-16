@@ -72,7 +72,7 @@
         </script>
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
-            <ol class="chapter"><li class="affix"><a href="intro.html">Introduction</a></li><li class="affix"><a href="about.html">About</a></li><li><a href="gettingstarted.html"><strong aria-hidden="true">1.</strong> Getting Started</a></li><li><ol class="section"><li><a href="installingprogs.html"><strong aria-hidden="true">1.1.</strong> Installing programs</a></li><li><a href="services.html"><strong aria-hidden="true">1.2.</strong> Setting up services</a></li><li><a href="envvars.html"><strong aria-hidden="true">1.3.</strong> Setting environment variables</a></li><li><a href="fonts.html"><strong aria-hidden="true">1.4.</strong> Installing fonts</a></li><li><a href="options.html"><strong aria-hidden="true">1.5.</strong> NixOS configuration options</a></li></ol></li><li><a href="packages.html"><strong aria-hidden="true">2.</strong> Managing Nix Packages</a></li><li><ol class="section"><li><a href="channels.html"><strong aria-hidden="true">2.1.</strong> Nix channels</a></li><li><a href="garbage.html"><strong aria-hidden="true">2.2.</strong> Nix garbage collection</a></li><li><a href="packageoptions.html"><strong aria-hidden="true">2.3.</strong> Setting package options</a></li><li><a href="overriding.html"><strong aria-hidden="true">2.4.</strong> Overriding attributes [WIP]</a></li></ol></li><li><a href="containerschapter.html"><strong aria-hidden="true">3.</strong> Sandboxes &amp; Containers [WIP]</a></li><li><ol class="section"><li><a href="nixsandboxes.html"><strong aria-hidden="true">3.1.</strong> Nix shell sandboxes</a></li><li><a href="containers.html"><strong aria-hidden="true">3.2.</strong> Containers [WIP]</a></li></ol></li><li><a href="derivations.html"><strong aria-hidden="true">4.</strong> Making Nix packages [WIP]</a></li><li><ol class="section"><li><a href="buildingpackages.html"><strong aria-hidden="true">4.1.</strong> Building packages [WIP]</a></li></ol></li><li><a href="nixexpressions.html"><strong aria-hidden="true">5.</strong> Nix Expressions</a></li><li><a href="advancednix.html"><strong aria-hidden="true">6.</strong> Advanced Nix</a></li><li><ol class="section"><li><a href="modules.html"><strong aria-hidden="true">6.1.</strong> Modules</a></li><li><a href="overlays.html"><strong aria-hidden="true">6.2.</strong> Overlays</a></li><li><a href="nixshell.html"><strong aria-hidden="true">6.3.</strong> Nix Shell</a></li></ol></li><li><a href="unsafe.html"><strong aria-hidden="true">7.</strong> Unsafe NixOS</a></li><li><a href="tipsandtricks.html"><strong aria-hidden="true">8.</strong> Tips &amp; Tricks</a></li></ol>
+            <ol class="chapter"><li class="affix"><a href="intro.html">Introduction</a></li><li class="affix"><a href="about.html">About</a></li><li><a href="gettingstarted.html"><strong aria-hidden="true">1.</strong> Getting Started</a></li><li><ol class="section"><li><a href="installingprogs.html"><strong aria-hidden="true">1.1.</strong> Installing programs</a></li><li><a href="services.html"><strong aria-hidden="true">1.2.</strong> Setting up services</a></li><li><a href="envvars.html"><strong aria-hidden="true">1.3.</strong> Setting environment variables</a></li><li><a href="fonts.html"><strong aria-hidden="true">1.4.</strong> Installing fonts</a></li><li><a href="options.html"><strong aria-hidden="true">1.5.</strong> NixOS configuration options</a></li></ol></li><li><a href="packages.html"><strong aria-hidden="true">2.</strong> Managing Nix Packages</a></li><li><ol class="section"><li><a href="channels.html"><strong aria-hidden="true">2.1.</strong> Nix channels</a></li><li><a href="garbage.html"><strong aria-hidden="true">2.2.</strong> Nix garbage collection</a></li><li><a href="packageoptions.html"><strong aria-hidden="true">2.3.</strong> Setting package options</a></li><li><a href="overriding.html"><strong aria-hidden="true">2.4.</strong> Overriding attributes [WIP]</a></li></ol></li><li><a href="containerschapter.html"><strong aria-hidden="true">3.</strong> Sandboxes &amp; Containers [WIP]</a></li><li><ol class="section"><li><a href="nixsandboxes.html"><strong aria-hidden="true">3.1.</strong> Nix shell sandboxes</a></li><li><a href="containers.html"><strong aria-hidden="true">3.2.</strong> Containers [WIP]</a></li></ol></li><li><a href="derivations.html"><strong aria-hidden="true">4.</strong> Making Nix packages [WIP]</a></li><li><ol class="section"><li><a href="buildingpackages.html"><strong aria-hidden="true">4.1.</strong> Building packages [WIP]</a></li></ol></li><li><a href="nixexpressions.html"><strong aria-hidden="true">5.</strong> Nix Expressions</a></li><li><a href="advancednix.html"><strong aria-hidden="true">6.</strong> Advanced Nix</a></li><li><ol class="section"><li><a href="modules.html"><strong aria-hidden="true">6.1.</strong> Modules [WIP]</a></li><li><a href="overlays.html"><strong aria-hidden="true">6.2.</strong> Overlays [WIP]</a></li><li><a href="nixshell.html"><strong aria-hidden="true">6.3.</strong> Nix Shell [WIP]</a></li></ol></li><li><a href="tipsandtricks.html"><strong aria-hidden="true">7.</strong> Tips &amp; Tricks [WIP]</a></li><li><ol class="section"><li><a href="fhs.html"><strong aria-hidden="true">7.1.</strong> Filesystem Hierarchy Standard</a></li></ol></li><li><a href="unsafe.html"><strong aria-hidden="true">8.</strong> Unsafe NixOS</a></li></ol>
         </nav>
 
         <div id="page-wrapper" class="page-wrapper">
@@ -573,6 +573,11 @@ sudo nixos-rebuild switch
 </code></pre>
 <p>And it's that easy. This basically changes the package <code>chromium</code> which is used in <code>environment.systemPackages</code> to our new version of chromium that has pepper flash enabled (Pepper Flash is basically flash, but maintained by Google instead of Adobe). When the configuration is built, it will use the version of chromium that we have declared as opposed to the default version of chromium.</p>
 <a class="header" href="#overriding-attributes" id="overriding-attributes"><h1>Overriding attributes</h1></a>
+<p>Coming soon:</p>
+<ul>
+<li>How to override attributes using <code>nixpkgs.config.packageOverrides</code></li>
+<li>Using <code>overrideAttrs</code> (and probably mentioning that the variable name <code>old</code> can literally be anything -.-)</li>
+</ul>
 <a class="header" href="#sandboxes--containers" id="sandboxes--containers"><h1>Sandboxes &amp; Containers</h1></a>
 <a class="header" href="#nix-shell-sandboxes" id="nix-shell-sandboxes"><h1>Nix shell sandboxes</h1></a>
 <p>Say you want to test out a program, but don't want to go through all of the effort of adding it to your system configuration and rebuilding it. This is where the Nix shell comes in.</p>
@@ -609,7 +614,13 @@ The program 'hello' is currently not installed. It is provided by several packag
 <a class="header" href="#nix-shells-with-fish-or-zsh" id="nix-shells-with-fish-or-zsh"><h2>Nix shells with <code>fish</code> or <code>zsh</code></h2></a>
 <p>When using Nix shells, it can sometimes be useful to keep track of what packages are currently installed in that instance of the Nix shell. A helpful tool is the <a href="https://github.com/haslersn/any-nix-shell">any-nix-shell</a>, which shows the information of temporarily installed packages when using the fish shell or the z shell.</p>
 <a class="header" href="#containers" id="containers"><h1>Containers</h1></a>
-<p>TODO: Creating containers.</p>
+<p>Coming soon:</p>
+<ul>
+<li>Creating declarative contains with NixOS</li>
+<li>Accessing them</li>
+<li>Using them via SSH (and X11 openssh forwarding)</li>
+<li>Networking?</li>
+</ul>
 <a class="header" href="#making-nix-packages" id="making-nix-packages"><h1>Making Nix packages</h1></a>
 <a class="header" href="#building-packages" id="building-packages"><h1>Building packages</h1></a>
 <a class="header" href="#nix-expressions" id="nix-expressions"><h1>Nix Expressions</h1></a>
@@ -727,22 +738,43 @@ The program 'hello' is currently not installed. It is provided by several packag
 }
 </code></pre>
 <a class="header" href="#advanced-nix" id="advanced-nix"><h1>Advanced Nix</h1></a>
+<p>So far, we've covered some very simple things that you can do with NixOS. For example:</p>
+<ul>
+<li>Using the <code>configuration.nix</code> file to configure the system</li>
+<li>Using the <code>nix-shell</code> command to create small shell sandboxes</li>
+<li>Using NixOS in general (clearing the garbage, managing channels etc.)</li>
+<li>Creating derivations</li>
+</ul>
+<p>This chapter will cover the much more advanced topics of NixOS, in particular:</p>
+<ul>
+<li>Using <em>Modules</em> to extend the <code>configuration.nix</code> file. Have you ever wanted to know where all of these options such as <code>xserver.displayManager.sddm.enable</code> came from? We will explain how to create your own custom configuration options that can be used in your <code>configuration.nix</code> file.</li>
+<li>Overriding packages by using <em>Overlays</em>. Spoiler alert: This basically lets you add custom packages into your configuration. These are one of the most complicated concepts to grasp, but once you get it, it's the most rewarding thing. Luckily, this is NixOS4Noobs and it's explained in such a way that anyone can understand it first time.</li>
+<li>Using the Nix Shell to its full potential by utilizing the <code>shell.nix</code> file. This lets us create Nix environments wherever to compile projects and run local programs.</li>
+</ul>
 <a class="header" href="#modules" id="modules"><h1>Modules</h1></a>
 <a class="header" href="#overlays" id="overlays"><h1>Overlays</h1></a>
+<p>Coming soon:</p>
+<ul>
+<li>Explaining how <code>self: super: { /* Code here */ }</code> works</li>
+<li>Using <code>super.callPackage</code></li>
+<li>Using a <code>default.nix</code> file as an overlay for a folder</li>
+<li>Probably worth mentioning the difference between <code>super.callPackage blah {};</code> and <code>import blah;</code> and how <code>callPackage</code> works. (Probably including an example of <code>import blah with pkgs; {blah1, blah2, blah3, blah...}</code> and why <code>super.callPackage blah {}</code> is so much better).</li>
+</ul>
 <a class="header" href="#nix-shell" id="nix-shell"><h1>Nix Shell</h1></a>
-<p>In chapter <a href="./nixsandboxes.html">3.1. Nix shell sandboxes</a>, we discussed...</p>
-<a class="header" href="#unsafe-nixos" id="unsafe-nixos"><h1>Unsafe NixOS</h1></a>
-<blockquote>
-<p><strong>Note:</strong></p>
-<p>The contents of this chapter are heavily advised <em>against</em>. These contain a list of poor practices for NixOS systems and are advised as a temporary measure - not to be used permanently. Use your own judgement of the situation before checking if these solutions are for you.</p>
-</blockquote>
-<a class="header" href="#using-the-fhs" id="using-the-fhs"><h2>Using the FHS</h2></a>
+<a class="header" href="#tips--tricks" id="tips--tricks"><h1>Tips &amp; Tricks</h1></a>
+<p>Coming soon:</p>
+<ul>
+<li>Creating bash scripts using Nix (<code>writeShellScriptBin</code>)</li>
+<li>Writing to <code>/etc</code> and using environment linking to handle <code>.config</code> files (And why I prefer this to home manager)</li>
+<li>System-wide program synced configurations (e.g. a system-wide color scheme that is controlled using a simple Nix file)</li>
+</ul>
+<a class="header" href="#filesystem-hierarchy-standard" id="filesystem-hierarchy-standard"><h1>Filesystem Hierarchy Standard</h1></a>
 <p>Sometimes, things <em>just don't work</em> on NixOS. For example, say a developer has written a program that uses the an executable in the directory <code>/usr/bin/someExecutable</code>. Unfortunately, say this developer also hardcoded this directory path in their code. This means that we cannot change it, or patch it using normal means (such as creating a wrapper for it).</p>
 <p>In order to bypass this, we can create a sandbox in NixOS that uses the Unix &quot;Filesystem Hierarchy Standard&quot; (FHS<sup class="footnote-reference"><a href="#1">1</a></sup>).</p>
 <p>There are two methods of using the FHS:</p>
-<a class="header" href="#declaring-a-fhs-environment-in-the-configuration" id="declaring-a-fhs-environment-in-the-configuration"><h3>Declaring a FHS environment in the configuration</h3></a>
+<a class="header" href="#declaring-a-fhs-environment-in-the-configuration" id="declaring-a-fhs-environment-in-the-configuration"><h2>Declaring a FHS environment in the configuration</h2></a>
 <p>You can declare a FHS environment in your <code>configuration.nix</code> file. This allows you to enter this sandboxed environment using a command in any directory. This is done by using the <code>pkgs.buildFHSUserEnv</code> function to create a sandbox derivation.</p>
-<a class="header" href="#example-a-c-execution-environment-for-llvm" id="example-a-c-execution-environment-for-llvm"><h4>Example: A C++ execution environment for LLVM</h4></a>
+<a class="header" href="#example-a-c-execution-environment-for-llvm" id="example-a-c-execution-environment-for-llvm"><h3>Example: A C++ execution environment for LLVM</h3></a>
 <p>In this example, we use <code>pkgs.buildFHSUserEnv</code> to create a sandbox to aid in C++ development for other Linux systems. We include various debugging tools, such as <code>gdb</code> and <code>valgrind</code>, as well as the required libraries that we'll need, such as <code>llvm</code>.</p>
 <pre><code class="language-nix">environment.systemPackages = with pkgs; [
     (pkgs.buildFHSUserEnv {
@@ -757,11 +789,52 @@ The program 'hello' is currently not installed. It is provided by several packag
 <p>We name this derivation <code>cppfhs</code>, which allows us to use the following command in any shell to quickly enter this environment:</p>
 <pre><code>$ cppfhs
 </code></pre>
+<a class="header" href="#declaring-a-fhs-environment-for-use-in-the-nix-shell-wip" id="declaring-a-fhs-environment-for-use-in-the-nix-shell-wip"><h2>Declaring a FHS environment for use in the Nix shell [WIP]</h2></a>
 <hr />
 <div class="footnote-definition" id="1"><sup class="footnote-definition-label">1</sup>
 <p>The Filesystem Hierarchy Standard specifies directories such as <code>/usr/bin</code>, <code>/usr/lib</code> and <code>/bin</code>. On NixOS, these directories exist, but aren't in use as you'd expect with regular Unix systems.</p>
 </div>
-<a class="header" href="#tips--tricks" id="tips--tricks"><h1>Tips &amp; Tricks</h1></a>
+<a class="header" href="#unsafe-nixos" id="unsafe-nixos"><h1>Unsafe NixOS</h1></a>
+<blockquote>
+<p><strong>Note:</strong></p>
+<p>The contents of this chapter are <em>heavily advised against</em>. In fact, they are beyond heavily advised against. <strong>Do not</strong> do the things outlined in this chapter. The sole reason this information is in NixOS4Noobs is to basically inform you to <strong>never</strong> do this stuff.</p>
+</blockquote>
+<blockquote>
+<p><strong>Author's Note:</strong></p>
+<p>I read somewhere that one of the best ways of teaching someone something is to basically show them what <em>not</em> to do, before telling them the correct way of doing something. That way, they gain a better understanding of the underlying consequences and know how to mitigate them in future. I thought this principle can apply very well to NixOS, since I have personally done all of these things and have had to deal with all of the consequences.</p>
+</blockquote>
+<a class="header" href="#unlocking-the-nix-store" id="unlocking-the-nix-store"><h2>Unlocking the Nix Store</h2></a>
+<p>The Nix store, located in <code>/nix/store/</code> is where all of the Nix magic happens. Since this is basically the main back end for the Nix system, and all isolated installations of components are stored in this location, messing with the Nix store is not a good idea. Hence, it comes pre-built with a lovely lock on it to prevent anyone tampering with it.</p>
+<p>Nonetheless, Nix lets you unlock the store by adding the following one line to your <code>configuration.nix</code> file:</p>
+<pre><code class="language-nix">nix.readOnlyStore = false;
+</code></pre>
+<p>This may seem super useful at first - it lets you fix up little derivations here and there and make everything work exactly as you want if something's a little off. However, this is not the case. Nix assumes that the Nix store is completely immutable and if something's not quite what Nix expects, Nix will basically have a melt down.</p>
+<a class="header" href="#alternatives-to-unlocking-the-nix-store" id="alternatives-to-unlocking-the-nix-store"><h3>Alternatives to unlocking the Nix Store</h3></a>
+<p>So now you know <em>never to use that option</em>, the main alternatives are to create derivations or to use Nix expressions that write to the Nix store in a pure manner. You already know how to create derivations according to <a href="./derivations.html">Chapter 4. Making Nix packages</a>.</p>
+<a class="header" href="#writing-text-files-to-the-nix-store" id="writing-text-files-to-the-nix-store"><h4>Writing text files to the Nix Store</h4></a>
+<p>Using the <code>builtin</code> function <code>toFile</code>, it's surprisingly easy to create a file in a Nix expression:</p>
+<pre><code class="language-nix">builtins.toFile &quot;filename.txt&quot; ''
+  file contents go here!
+'';
+</code></pre>
+<p>This creates a file called <code>filename.txt</code>, with the provided file contents and stores it in the Nix store (fully hashed as you'd expect). The result of this function is the path which is created in the Nix store which refers to the file that was generated.</p>
+<a class="header" href="#writing-executable-text-files-to-the-nix-store" id="writing-executable-text-files-to-the-nix-store"><h4>Writing executable text files to the Nix Store</h4></a>
+<p>Executable files can be written using the <code>pkgs</code>, which can be pulled into scope using the <code>with import &lt;nixpkgs&gt; {};</code> expression. The <a href="https://github.com/NixOS/nixpkgs/blob/master/pkgs/build-support/trivial-builders.nix#L30">writeTextFile</a> function allows you to create a file with extra options such as:</p>
+<ul>
+<li>Declaring the file's folder which it is written to</li>
+<li>Declaring if the file should be executable or not</li>
+<li>Running a check phase (for example, to check for syntax errors)</li>
+</ul>
+<pre><code class="language-nix">with import &lt;nixpkgs&gt; {};
+writeTextFile {
+    name = &quot;my-file&quot;;
+    text = ''
+        Contents of File
+    '';
+    executable = true;
+    destination = &quot;/bin/my-file&quot;;
+}
+</code></pre>
 
                     </main>
 

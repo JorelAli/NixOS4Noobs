@@ -2,42 +2,59 @@
 
 > **Note:**
 >
-> The contents of this chapter are heavily advised _against_. These contain a list of poor practices for NixOS systems and are advised as a temporary measure - not to be used permanently. Use your own judgement of the situation before checking if these solutions are for you.
+> The contents of this chapter are _heavily advised against_. In fact, they are beyond heavily advised against. **Do not** do the things outlined in this chapter. The sole reason this information is in NixOS4Noobs is to basically inform you to **never** do this stuff.
 
-## Using the FHS
+> **Author's Note:**
+>
+> I read somewhere that one of the best ways of teaching someone something is to basically show them what _not_ to do, before telling them the correct way of doing something. That way, they gain a better understanding of the underlying consequences and know how to mitigate them in future. I thought this principle can apply very well to NixOS, since I have personally done all of these things and have had to deal with all of the consequences.
 
-Sometimes, things _just don't work_ on NixOS. For example, say a developer has written a program that uses the an executable in the directory `/usr/bin/someExecutable`. Unfortunately, say this developer also hardcoded this directory path in their code. This means that we cannot change it, or patch it using normal means (such as creating a wrapper for it).
+## Unlocking the Nix Store
 
-In order to bypass this, we can create a sandbox in NixOS that uses the Unix "Filesystem Hierarchy Standard" (FHS[^1]).
+The Nix store, located in `/nix/store/` is where all of the Nix magic happens. Since this is basically the main back end for the Nix system, and all isolated installations of components are stored in this location, messing with the Nix store is not a good idea. Hence, it comes pre-built with a lovely lock on it to prevent anyone tampering with it.
 
-There are two methods of using the FHS:
-
-### Declaring a FHS environment in the configuration
-
-You can declare a FHS environment in your `configuration.nix` file. This allows you to enter this sandboxed environment using a command in any directory. This is done by using the `pkgs.buildFHSUserEnv` function to create a sandbox derivation.
-
-#### Example: A C++ execution environment for LLVM
-
-In this example, we use `pkgs.buildFHSUserEnv` to create a sandbox to aid in C++ development for other Linux systems. We include various debugging tools, such as `gdb` and `valgrind`, as well as the required libraries that we'll need, such as `llvm`.
+Nonetheless, Nix lets you unlock the store by adding the following one line to your `configuration.nix` file:
 
 ```nix
-environment.systemPackages = with pkgs; [
-    (pkgs.buildFHSUserEnv {
-        name = "cppfhs";
-        runScript = "bash";
-        targetPkgs = pkgs: with pkgs; [
-        	clang_8 gdb llvm_8 valgrind
-        ]; 
-    })
-];
+nix.readOnlyStore = false;
 ```
 
-We name this derivation `cppfhs`, which allows us to use the following command in any shell to quickly enter this environment:
+This may seem super useful at first - it lets you fix up little derivations here and there and make everything work exactly as you want if something's a little off. However, this is not the case. Nix assumes that the Nix store is completely immutable and if something's not quite what Nix expects, Nix will basically have a melt down.
 
+### Alternatives to unlocking the Nix Store
+
+So now you know _never to use that option_, the main alternatives are to create derivations or to use Nix expressions that write to the Nix store in a pure manner. You already know how to create derivations according to [Chapter 4. Making Nix packages](./derivations.md).
+
+#### Writing text files to the Nix Store
+
+Using the `builtin` function `toFile`, it's surprisingly easy to create a file in a Nix expression:
+
+```nix
+builtins.toFile "filename.txt" ''
+  file contents go here!
+'';
 ```
-$ cppfhs
+
+This creates a file called `filename.txt`, with the provided file contents and stores it in the Nix store (fully hashed as you'd expect). The result of this function is the path which is created in the Nix store which refers to the file that was generated.
+
+#### Writing executable text files to the Nix Store
+
+Executable files can be written using the `pkgs`, which can be pulled into scope using the `with import <nixpkgs> {};` expression. The [writeTextFile](https://github.com/NixOS/nixpkgs/blob/master/pkgs/build-support/trivial-builders.nix#L30) function allows you to create a file with extra options such as:
+
+- Declaring the file's folder which it is written to
+- Declaring if the file should be executable or not
+- Running a check phase (for example, to check for syntax errors)
+
+```nix
+with import <nixpkgs> {};
+writeTextFile {
+    name = "my-file";
+    text = ''
+        Contents of File
+    '';
+    executable = true;
+    destination = "/bin/my-file";
+}
 ```
 
------
 
-[^1]: The Filesystem Hierarchy Standard specifies directories such as `/usr/bin`, `/usr/lib` and `/bin`. On NixOS, these directories exist, but aren't in use as you'd expect with regular Unix systems.
+
